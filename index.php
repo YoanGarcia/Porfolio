@@ -4,6 +4,10 @@
 	$req = $bdd->prepare('SELECT * FROM infos  WHERE id = 1');
 	$req->execute();
 	$infos = $req->fetch();
+
+	$req = $bdd->prepare('SELECT * FROM creations');
+	$req->execute();
+	$creations = $req->fetchall(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html>
@@ -96,9 +100,9 @@
 		</header>
 		<section id="apropo" style="text-align: center;background: rgb(15, 81, 90);">
 			<h2>A propos de moi</h2>
-			<p  alt="A propos de moi" title="A propos de moi">Après avoir obtenu mon BAC STL (Sciences Techniques de Laboratoire), j'ai voulu tenter l'écologie et la prévention. Au bout d’une année dans l'IUT HSE (Hygiène Santé Environnement) de Tulle, je me suis réorienté vers une passion née dès mon plus jeune âge : le jeu vidéo.<br><br>J'intègre donc ESTEI à Bordeaux où je suis actuellement un bachelor (BAC+3) en infographie/multimédia dans le but de travailler dans le jeu vidéo plutôt du côté de l'image (graphisme, modélisation).</p><br>
+			<p  alt="A propos de moi" title="A propos de moi"><?=$infos['apropos']?></p><br>
 			
-			<a href="https://google.fr" alt="Lien vers mon Curriculum Vitae" title="Lien vers mon Curriculum Vitae">Curriculum Vitae</a>
+			<a href="<?=$infos['lien_cv']?>" alt="Lien vers mon Curriculum Vitae" title="Lien vers mon Curriculum Vitae">Curriculum Vitae</a>
 		</section>
 		<section id="competences">
 			<section>
@@ -174,188 +178,14 @@
 				<?php endfor ?>
 			</section>
 		</section>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
+		<section id="creations">
+		<?php foreach ($creations as $creation): ?>
+			<article class="<?=$creation['type']?>">
+				<img src="IMG/<?=$creation['img']?>">
+				<h1><?=$creation['titre']?></h1>
+				<p><?=$creation['description']?></p>
+			</article>
+		<?php endforeach ?>
+		</section>
 	</body>
 </html>
