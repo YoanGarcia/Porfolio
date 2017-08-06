@@ -21,6 +21,10 @@
 
 		<title>Yoan Garcia</title>
 
+		<meta name="Description" content="Garcia Yoan, Infographiste multimédia, Mon Portfolio">
+		<meta name="keywords" content="Garcia Yoan, Infographiste, infographie, animation, 3D, 2D, Bordeaux, Aquitaine, Portfolio">
+		<link rel="shortcut icon" type="image/jpg" href="IMG/MonLogoNoir.png" />
+
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
