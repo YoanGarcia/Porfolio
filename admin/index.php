@@ -44,130 +44,160 @@
 				}
 			}
 
-			if($post['formulaire'] === 'edition')
+			if($post['formulaire'] === 'infos')
 			{
-				if(!isset($post['nom']) || empty($post['nom']))
-				{
-					$errors[] = 'les nom ne doit pas étre vide';
-				}
-				
-				if(!isset($post['prenom']) || empty($post['prenom']))
-				{
-					$errors[] = 'les prenom ne doit pas étre vide';
-				}
-
 				if(!isset($post['email']) || empty($post['email']))
 				{
 					$errors[] = 'l\'email ne doit pas étre vide';
 				}
 
-				if(!isset($post['html']) || empty($post['html']))
+				if(!isset($post['lien_cv']) || empty($post['lien_cv']))
 				{
-					$post['html'] = (int) $post['html'];
-
-					if($post['html'] < 0 || $post['html'] > 5 || !is_numeric($post['html']))
-					{
-						$errors[] = 'html doit étre un nombre';
-					}
+					$errors[] = 'lien_cv ne doit pas étre vide';
 				}
 
-				if(!isset($post['css']) || empty($post['css']))
+				if(!isset($post['apropos']) || empty($post['apropos']))
 				{
-					$post['css'] = (int) $post['css'];
-
-					if($post['css'] < 0 || $post['css'] > 5 || !is_numeric($post['css']))
-					{
-						$errors[] = 'css doit étre un nombre';
-					}
+					$errors[] = 'apropos ne doit pas étre vide';
 				}
 
-				if(!isset($post['php']) || empty($post['php']))
+				if(!empty($_FILES) && isset($_FILES['picture']))
 				{
-					$post['php'] = (int) $post['php'];
+				    if ($_FILES['picture']['error'] == UPLOAD_ERR_OK) 
+				    {
+				        $nomFichier = $_FILES['picture']['name'];
+				        $tmpFichier = $_FILES['picture']['tmp_name']; 
+				                       
+			            $newFileName = explode('.', $nomFichier);
+			            $fileExtension = end($newFileName);
 
-					if($post['php'] < 0 || $post['php'] > 5 || !is_numeric($post['php']))
-					{
-						$errors[] = 'php doit étre un nombre';
-					}
-				}
+			            $finalFileName = 'photoCV.'.$fileExtension; 
 
-				if(!isset($post['js']) || empty($post['js']))
-				{
-					$post['js'] = (int) $post['js'];
-
-					if($post['js'] < 0 || $post['js'] > 5 || !is_numeric($post['js']))
-					{
-						$errors[] = 'js doit étre un nombre';
-					}
-				}
-
-				if(!isset($post['office']) || empty($post['office']))
-				{
-					$post['office'] = (int) $post['office'];
-
-					if($post['office'] < 0 || $post['office'] > 5 || !is_numeric($post['office']))
-					{
-						$errors[] = 'office doit étre un nombre';
-					}
-				}
-
-				if(!isset($post['photo']) || empty($post['photo']))
-				{
-					$post['photo'] = (int) $post['photo'];
-
-					if($post['photo'] < 0 || $post['photo'] > 5 || !is_numeric($post['photo']))
-					{
-						$errors[] = 'photo doit étre un nombre';
-					}
-				}
-
-				if(!isset($post['illustrator']) || empty($post['illustrator']))
-				{
-					$post['illustrator'] = (int) $post['illustrator'];
-
-					if($post['illustrator'] < 0 || $post['illustrator'] > 5 || !is_numeric($post['illustrator']))
-					{
-						$errors[] = 'illustrator doit étre un nombre';
-					}
-				}
-
-				if(!isset($post['anglais']) || empty($post['anglais']))
-				{
-					$post['anglais'] = (int) $post['anglais'];
-
-					if($post['anglais'] < 0 || $post['anglais'] > 5 || !is_numeric($post['anglais']))
-					{
-						$errors[] = 'anglais doit étre un nombre';
-					}
+			            if(move_uploaded_file($tmpFichier, '../IMG/'.$finalFileName)) 
+			            {
+			                echo '<script>alert(\'la photo a bien était mise à jour\')</script>';    
+			            }
+				    }
+				    else
+				    {
+				    	$errors[] = 'erreur d\'upload de limage';
+				    } 
 				}
 
 				if(count($errors) == 0)
 				{
-					$req = $bdd->prepare('UPDATE infos SET nom = ?, prenom = ?, email = ?, html = ?, css = ?, php = ?, js = ?, office = ?, photo = ?, illustrator = ?, anglais = ? WHERE id = 1');
+					$req = $bdd->prepare('UPDATE infos SET telephone = ?, email = ?, lien_cv = ?, apropos = ?, photoCV = ? WHERE id = 1');
 					if($req->execute([
-							$post['nom'],
-							$post['prenom'],
+							$post['telephone'],
 							$post['email'],
-							$post['html'],
-							$post['css'],
-							$post['php'],
-							$post['js'],
-							$post['office'],
-							$post['photo'],
-							$post['illustrator'],
-							$post['anglais'],
+							$post['lien_cv'],
+							$post['apropos'],
+							$finalFileName,
 						]))
 					{
 						echo '<script>alert(\'les informations ont bien était mises à jour\')</script>';
 					}
 				}
-			}			
+			}
+
+			if($post['formulaire'] === 'edit_competences')
+			{
+				$req = $bdd->prepare('SELECT * FROM competences');
+				$req->execute();
+				$competences = $req->fetchall(PDO::FETCH_ASSOC);
+
+				foreach ($competences as $competence) 
+				{
+					if(empty($post[$competence['id']]) || !isset($post[$competence['id']]))
+					{
+						$post[$competence['id']] = (int) $post[$competence['id']];
+
+						if($post[$competence['id']] < 0 || $post[$competence['id']] > 5)
+						{
+							$errors[] = $comptence['titre'].' doit etre compris entre 0 et 5';
+						}
+					}
+				}
+
+				if(count($errors) == 0)
+				{
+					foreach ($competences as $competence) 
+					{	
+						$req = $bdd->prepare('UPDATE competences SET points = ? WHERE id = '.$competence['id']);
+						if(!$req->execute([
+								$post[$competence['id']]
+							]))
+						{
+							var_dump($req->errorinfo());
+							echo '<script>alert(\'erreur impossible de metre a jour la competence '.$competence['titre'].'\')</script>';
+						}
+					}
+				}
+			}	
+
+			if($post['formulaire'] === 'add_competences')
+			{
+				if(!isset($post['titre']) || empty($post['titre']))
+				{
+					$errors[] = 'le Nom ne doit pas étre vide';
+				}
+
+				if(empty($post['points']) || !isset($post['points']))
+				{
+					$post['points'] = (int) $post['points'];
+
+					if($post['points'] < 0 || $post['points'] > 5)
+					{
+						$errors[] = ' le nombre de points doit etre compris entre 0 et 5';
+					}
+				}
+
+				if(count($errors) == 0)
+				{
+					$req = $bdd->prepare('INSERT INTO competences (titre, points) VALUES(?, ?)');
+					if($req->execute([
+							$post['titre'],
+							$post['points']
+						]))
+					{
+						var_dump($req->errorinfo());
+						echo '<script>alert(\'la competence '.$post['titre'].' à bien était ajouter\')</script>';
+					}
+				}
+			}
+
+			if($post['formulaire'] === 'del_competences')
+			{
+				if(!isset($post['titre']) || empty($post['titre']))
+				{
+					$errors[] = 'le Nom ne doit pas étre vide';
+				}
+
+				if(count($errors) == 0)
+				{
+					$req = $bdd->prepare('DELETE FROM competences WHERE titre = ?');
+					if($req->execute([
+							$post['titre'],
+						]))
+					{
+						echo '<script>alert(\'la competence '.$post['titre'].' à bien était Supprimer\')</script>';
+					}
+				}		
+			}
 		}
 	}
 
 	$req = $bdd->prepare('SELECT * FROM infos  WHERE id = 1');
 	$req->execute();
 	$infos = $req->fetch();
+
+	$req = $bdd->prepare('SELECT * FROM competences');
+	$req->execute();
+	$competences = $req->fetchall(PDO::FETCH_ASSOC);
+
+	$req = $bdd->prepare('SELECT * FROM creations');
+	$req->execute();
+	$creations = $req->fetchall(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html>
@@ -175,6 +205,8 @@
 		<meta charset="utf-8">
 
 		<title>Admin</title>
+
+		<!-- <link rel="stylesheet" type="text/css" href="../css/style.css"> -->
 	</head>
 	<body>
 		<?php if (count($errors) != 0): ?>
@@ -185,7 +217,6 @@
 
 		<?php endif ?>
 		<?php if (!$connect): ?>
-
 			<form method="post" action="index.php">
 				<input type="hidden" name="formulaire" value="connection">
 
@@ -197,58 +228,73 @@
 
 				<input type="submit" value="connect">
 			</form>
-
 		<?php else: ?>
-			<form method="post" action="index.php">
-				<input type="hidden" name="formulaire" value="edition">
+			<section id="formulaire_infos">
+				<form method="post" action="index.php" enctype="multipart/form-data">
+					<input type="hidden" name="formulaire" value="infos">
 
-				<label>Nom</label>
-				<input type="text" name="nom" value="<?=$infos['nom']?>">
-				<br>
+					<label>Telephone</label>
+					<input type="text" name="telephone" value="<?=$infos['telephone']?>">
+					<br>
 
-				<label>Prenom</label>
-				<input type="text" name="prenom" value="<?=$infos['prenom']?>">
-				<br>
+					<label>Email</label>
+					<input type="email" name="email" value="<?=$infos['email']?>">
+					<br>
 
-				<label>Email</label>
-				<input type="email" name="email" value="<?=$infos['email']?>">
-				<br>
+					<label>lien CV</label>
+					<input type="url" name="lien_cv" value="<?=$infos['lien_cv']?>">
+					<br>
+					
+					<label>à propos</label>
+					<textarea name="apropos"><?=$infos['apropos']?></textarea>
+					<br>
 
-				<label>HTML5</label>
-				<input type="number" name="html" value="<?=$infos['html']?>">
-				<br>
+					<label>PhotoCV</label>
+					<input type="file" name="picture">
+					<br>
 
-				<label>CSS3</label>
-				<input type="number" name="css" value="<?=$infos['css']?>">
-				<br>
+					<input type="submit" value="Modifier">
+				</form>
+			</section>	
+			<section id="competences">
+				<section id="edit_competences">
+				<form method="post" action="index.php">
+					<input type="hidden" name="formulaire" value="edit_competences">
+					<?php foreach ($competences as $competence): ?>
+						<label><?=$competence['titre']?></label>
+						<input type="number" name="<?=$competence['id']?>" value="<?=$competence['points']?>">	
+						<br>	
+					<?php endforeach ?>
+					<input type="submit" value="Modifier">
+				</form>
+				</section>
+				<section id="add_competences">
+					<form method="post" action="index.php">
+						<input type="hidden" name="formulaire" value="add_competences">
+						
+						<label>Nom de la competence</label>
+						<input type="text" name="titre">
+						<br>
 
-				<label>PHP</label>
-				<input type="number" name="php" value="<?=$infos['php']?>">
-				<br>
+						<label>Points de competence</label>
+						<input type="number" name="points">
+						<br>
 
-				<label>Javascript</label>
-				<input type="number" name="js" value="<?=$infos['js']?>">
-				<br>
+						<input type="submit" value="Ajouter">
+					</form>
+				</section>
+				<section id="del_competences">
+					<form method="post" action="index.php">
+						<input type="hidden" name="formulaire" value="del_competences">
+						
+						<label>Nom de la competence</label>
+						<input type="text" name="titre">
+						<br>
 
-				<label>Office</label>
-				<input type="number" name="office" value="<?=$infos['office']?>">
-				<br>
-
-				<label>Photoshop</label>
-				<input type="number" name="photo" value="<?=$infos['photo']?>">
-				<br>
-
-				<label>Illustrator</label>
-				<input type="number" name="illustrator" value="<?=$infos['illustrator']?>">
-				<br>
-
-				<label>Anglais</label>
-				<input type="number" name="anglais" value="<?=$infos['anglais']?>">
-				<br>
-				<br>
-				<br>
-				<input type="submit" value="edite">
-			</form>
+						<input type="submit" value="Supprimer">
+					</form>
+				</section>
+			</section>		
 		<?php endif ?>
 	</body>
 </html>

@@ -1,0 +1,81 @@
+*
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+body
+{
+	background-image: url('../IMG/lion.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.check
+{
+	display: flex;
+	background: rgb(45, 127, 139);
+	width: 20px;
+	height: 20px;
+	border-radius: 20px;
+}
+
+.uncheck
+{
+	display: flex;
+	background: rgb(45, 127, 139);
+	width: 20px;
+	height: 20px;
+	border-radius: 20px;
+}
+
+.uncheck1
+{
+	margin: auto;
+	display: inline-block;
+	background: rgb(15, 81, 90);
+	width: 12px;
+	height: 12px;
+	border-radius: 12px;	
+}
+
+#competences section
+{
+	display: flex;
+	flex-direction: row;
+	align-content: space-around;
+	width: 800px;
+} 
+
+.bouton_commencer
+{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+}
+
+header
+{
+	text-align: center;
+	display: flex;
+	position: relative;
+	height: 100vh;
+}
+
+#nom_desc
+{
+	display: inline-block;
+	margin: auto;
+}
+
+#apropo
+{
+	text-align: center;
+	background: rgb(15, 81, 90);
+}
+
+#competences
+{
+	background: rgb(15, 81, 90);
+}
