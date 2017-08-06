@@ -184,6 +184,11 @@
 					}
 				}		
 			}
+
+			if($post['formulaire'] === 'edit_creation')
+			{
+				
+			}
 		}
 	}
 
@@ -284,6 +289,83 @@
 					</form>
 				</section>
 				<section id="del_competences">
+					<form method="post" action="index.php" enctype="multipart/form-data">
+						<input type="hidden" name="formulaire" value="del_competences">
+						
+						<label>Nom de la competence</label>
+						<input type="text" name="titre">
+						<br>
+
+						<input type="submit" value="Supprimer">
+					</form>
+				</section>
+
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+
+				<section id="edit_creation">
+				<form method="post" action="index.php">
+					<input type="hidden" name="formulaire" value="edit_creation">
+					<?php foreach ($creations as $creation): ?>
+
+						<label>Titre</label>
+						<input type="text" name="titre" value="<?=$creation['titre']?>">
+						<br>
+
+						<label>Temp de travail</label>
+						<input type="text" name="temp" value="<?=$creation['temp']?>">
+						<br>
+
+						<label>Images</label>
+						<input type="file" name="picture">
+						<br>
+
+						<label>Description</label>
+						<textarea name="apropos"><?=$creation['description']?></textarea>
+						<br>
+
+						<label>Type :</label>
+						<br>
+						<label>Adobe Photoshop<input type="radio" name="type" value="photo"></label><br>
+						<label>Adobe Illustrator<input type="radio" name="type" value="illu"></label><br>
+						<label>3ds Max<input type="radio" name="type" value="3ds"></label><br>
+						<br>
+
+					<?php endforeach ?>
+					<input type="submit" value="Modifier">
+				</form>
+				</section>
+				<section id="add_competences">
+					<form method="post" action="index.php">
+						<input type="hidden" name="formulaire" value="add_competences">
+						
+						<label>Nom de la competence</label>
+						<input type="text" name="titre">
+						<br>
+
+						<label>Points de competence</label>
+						<input type="number" name="points">
+						<br>
+
+						<input type="submit" value="Ajouter">
+					</form>
+				</section>
+				<section id="del_competences">
 					<form method="post" action="index.php">
 						<input type="hidden" name="formulaire" value="del_competences">
 						
@@ -294,6 +376,7 @@
 						<input type="submit" value="Supprimer">
 					</form>
 				</section>
+
 			</section>		
 		<?php endif ?>
 	</body>
