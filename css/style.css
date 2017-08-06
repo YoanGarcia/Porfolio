@@ -79,3 +79,12 @@ header
 {
 	background: rgb(15, 81, 90);
 }
+
+#sidemenu{
+	position: absolute;
+	top: 0;
+	right: 0px;
+	height: 100vh;
+	width: 150px;
+	background: black;
+}

@@ -29,6 +29,12 @@
 	</head>
 	<body>
 		<header>
+
+			<sidebar id="sidemenu">
+				coucou
+			</sidebar>
+
+
 			<section id="nom_desc">
 				<h2>Yoan Garcia</h2>
 				<p>Infographiste multimédia</p>
