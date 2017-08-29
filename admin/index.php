@@ -187,7 +187,21 @@
 
 			if($post['formulaire'] === 'edit_creation')
 			{
-				
+				if(count($errors) == 0)
+				{
+					$req = $bdd->prepare('UPDATE creations SET type = ?, titre = ?, description = ?, img = ?, temp = ? WHERE id = '.$post['creation_id']);
+					if(!$req->execute([
+							$post['type'],
+							$post['titre'],
+							$post['description'],
+							$img,
+							$post['temp'],
+						]))
+					{
+						var_dump($req->errorinfo());
+						echo '<script>alert(\'erreur impossible de metre a jour la competence '.$competence['titre'].'\')</script>';
+					}
+				}
 			}
 		}
 	}
@@ -221,6 +235,7 @@
 			<?php endforeach ?>
 
 		<?php endif ?>
+
 		<?php if (!$connect): ?>
 			<form method="post" action="index.php">
 				<input type="hidden" name="formulaire" value="connection">
@@ -234,6 +249,7 @@
 				<input type="submit" value="connect">
 			</form>
 		<?php else: ?>
+			
 			<section id="formulaire_infos">
 				<form method="post" action="index.php" enctype="multipart/form-data">
 					<input type="hidden" name="formulaire" value="infos">
@@ -260,19 +276,21 @@
 
 					<input type="submit" value="Modifier">
 				</form>
-			</section>	
+			</section>
+
 			<section id="competences">
 				<section id="edit_competences">
-				<form method="post" action="index.php">
-					<input type="hidden" name="formulaire" value="edit_competences">
-					<?php foreach ($competences as $competence): ?>
-						<label><?=$competence['titre']?></label>
-						<input type="number" name="<?=$competence['id']?>" value="<?=$competence['points']?>">	
-						<br>	
-					<?php endforeach ?>
-					<input type="submit" value="Modifier">
-				</form>
+					<form method="post" action="index.php">
+						<input type="hidden" name="formulaire" value="edit_competences">
+						<?php foreach ($competences as $competence): ?>
+							<label><?=$competence['titre']?></label>
+							<input type="number" name="<?=$competence['id']?>" value="<?=$competence['points']?>">	
+							<br>	
+						<?php endforeach ?>
+						<input type="submit" value="Modifier">
+					</form>
 				</section>
+
 				<section id="add_competences">
 					<form method="post" action="index.php">
 						<input type="hidden" name="formulaire" value="add_competences">
@@ -288,6 +306,7 @@
 						<input type="submit" value="Ajouter">
 					</form>
 				</section>
+
 				<section id="del_competences">
 					<form method="post" action="index.php" enctype="multipart/form-data">
 						<input type="hidden" name="formulaire" value="del_competences">
@@ -319,37 +338,38 @@
 				<br>
 
 				<section id="edit_creation">
-				<form method="post" action="index.php">
-					<input type="hidden" name="formulaire" value="edit_creation">
-					<?php foreach ($creations as $creation): ?>
+					<form method="post" action="index.php">
+						<input type="hidden" name="formulaire" value="edit_creation">
+						<?php foreach ($creations as $creation): ?>
 
-						<label>Titre</label>
-						<input type="text" name="titre" value="<?=$creation['titre']?>">
-						<br>
+							<label>Titre</label>
+							<input type="text" name="titre" value="<?=$creation['titre']?>">
+							<br>
 
-						<label>Temp de travail</label>
-						<input type="text" name="temp" value="<?=$creation['temp']?>">
-						<br>
+							<label>Temp de travail</label>
+							<input type="text" name="temp" value="<?=$creation['temp']?>">
+							<br>
 
-						<label>Images</label>
-						<input type="file" name="picture">
-						<br>
+							<label>Images</label>
+							<input type="file" name="picture">
+							<br>
 
-						<label>Description</label>
-						<textarea name="apropos"><?=$creation['description']?></textarea>
-						<br>
+							<label>Description</label>
+							<textarea name="apropos"><?=$creation['description']?></textarea>
+							<br>
 
-						<label>Type :</label>
-						<br>
-						<label>Adobe Photoshop<input type="radio" name="type" value="photo"></label><br>
-						<label>Adobe Illustrator<input type="radio" name="type" value="illu"></label><br>
-						<label>3ds Max<input type="radio" name="type" value="3ds"></label><br>
-						<br>
+							<label>Type :</label>
+							<br>
+							<label>Adobe Photoshop<input type="radio" name="type" value="photo" <?= ($creation['type'] === 'photo') ? 'checked' : '' ?> ></label><br>
+							<label>Adobe Illustrator<input type="radio" name="type" value="illu" <?= ($creation['type'] === 'illu') ? 'checked' : '' ?> ></label><br>
+							<label>3ds Max<input type="radio" name="type" value="3ds" <?= ($creation['type'] === '3ds') ? 'checked' : '' ?> ></label><br>
+							<br>
 
-					<?php endforeach ?>
-					<input type="submit" value="Modifier">
-				</form>
+						<?php endforeach ?>
+						<input type="submit" value="Modifier">
+					</form>
 				</section>
+
 				<section id="add_competences">
 					<form method="post" action="index.php">
 						<input type="hidden" name="formulaire" value="add_competences">
@@ -365,6 +385,7 @@
 						<input type="submit" value="Ajouter">
 					</form>
 				</section>
+
 				<section id="del_competences">
 					<form method="post" action="index.php">
 						<input type="hidden" name="formulaire" value="del_competences">
