@@ -75,12 +75,14 @@
 
 			            if(move_uploaded_file($tmpFichier, '../IMG/'.$finalFileName)) 
 			            {
-			                echo '<script>alert(\'la photo a bien était mise à jour\')</script>';    
+			                echo '<script>alert(\'la photo a bien était mise à jour\')</script>';  
+			                unset($_FILES['picture']);  
 			            }
 				    }
 				    else
 				    {
 				    	$errors[] = 'erreur d\'upload de limage';
+				    	unset($_FILES['picture']);
 				    } 
 				}
 
@@ -121,6 +123,31 @@
 
 				if(count($errors) == 0)
 				{
+					if(!empty($_FILES) && isset($_FILES['picture']))
+					{
+					    if ($_FILES['picture']['error'] == UPLOAD_ERR_OK) 
+					    {
+					        $nomFichier = $_FILES['picture']['name'];
+					        $tmpFichier = $_FILES['picture']['tmp_name']; 
+					                       
+				            $newFileName = explode('.', $nomFichier);
+				            $fileExtension = end($newFileName);
+
+				            $finalFileName = 'photoCV.'.$fileExtension; 
+
+				            if(move_uploaded_file($tmpFichier, '../IMG/'.$finalFileName)) 
+				            {
+				                echo '<script>alert(\'la photo a bien était mise à jour\')</script>';  
+				                unset($_FILES['picture']);  
+				            }
+					    }
+					    else
+					    {
+					    	$errors[] = 'erreur d\'upload de limage';
+					    	unset($_FILES['picture']);
+					    } 
+					}
+
 					foreach ($competences as $competence) 
 					{	
 						$req = $bdd->prepare('UPDATE competences SET points = ? WHERE id = '.$competence['id']);
@@ -186,7 +213,59 @@
 			}
 
 			if($post['formulaire'] === 'edit_creation')
-			{
+			{				
+				if(!isset($post['type']) || empty($post['type']))
+				{
+					$errors[] = 'le Type ne doit pas étre vide';
+				}
+
+				if(!isset($post['titre']) || empty($post['titre']))
+				{
+					$errors[] = 'le titre ne doit pas étre vide';
+				}
+
+				if(!isset($post['description']) || empty($post['description']))
+				{
+					$errors[] = 'la description ne doit pas étre vide';
+				}
+
+				if(!isset($post['temp']) || empty($post['temp']))
+				{
+					$errors[] = 'le temp ne doit pas étre vide';
+				}
+
+				var_dump($_FILES);
+				if(!empty($_FILES) && isset($_FILES['picture']))
+				{	
+					if ($_FILES['picture']['error'] == UPLOAD_ERR_OK) 
+				    {
+				        $nomFichier = $_FILES['picture']['name'];
+				        $tmpFichier = $_FILES['picture']['tmp_name']; 
+				                       
+			            $newFileName = explode('.', $nomFichier);
+			            $fileExtension = end($newFileName);
+
+			            $imgname = explode('.', $post['creation_img'])[0];
+			            $finalFileName = $imgname.'.'.$fileExtension; 
+
+			            if(move_uploaded_file($tmpFichier, '../IMG/'.$finalFileName)) 
+			            {
+			            	$img = $finalFileName;
+			                echo '<script>alert(\'la photo a bien était mise à jour\')</script>';  
+			                unset($_FILES['picture']);  
+			            }
+				    }
+				    else
+				    {
+				    	$errors[] = 'erreur d\'upload de limage';
+				    	unset($_FILES['picture']);
+				    }
+				}
+				else
+				{
+					$img = $post['creation_img'];
+				}
+
 				if(count($errors) == 0)
 				{
 					$req = $bdd->prepare('UPDATE creations SET type = ?, titre = ?, description = ?, img = ?, temp = ? WHERE id = '.$post['creation_id']);
@@ -249,7 +328,7 @@
 				<input type="submit" value="connect">
 			</form>
 		<?php else: ?>
-			
+
 			<section id="formulaire_infos">
 				<form method="post" action="index.php" enctype="multipart/form-data">
 					<input type="hidden" name="formulaire" value="infos">
@@ -338,10 +417,12 @@
 				<br>
 
 				<section id="edit_creation">
-					<form method="post" action="index.php">
-						<input type="hidden" name="formulaire" value="edit_creation">
-						<?php foreach ($creations as $creation): ?>
-
+					<?php foreach ($creations as $creation): ?>
+						<form method="post" action="index.php" enctype="multipart/form-data">
+							<input type="hidden" name="formulaire" value="edit_creation">
+							<input type="hidden" name="creation_id" value="<?=$creation['id']?>">
+							<input type="hidden" name="creation_img" value="<?=$creation['img']?>">
+							
 							<label>Titre</label>
 							<input type="text" name="titre" value="<?=$creation['titre']?>">
 							<br>
@@ -350,12 +431,14 @@
 							<input type="text" name="temp" value="<?=$creation['temp']?>">
 							<br>
 
+							<img src="../IMG/<?=$creation['img']?>" width="50" height="50">
+							<br>
 							<label>Images</label>
 							<input type="file" name="picture">
 							<br>
 
 							<label>Description</label>
-							<textarea name="apropos"><?=$creation['description']?></textarea>
+							<textarea name="description"><?=$creation['description']?></textarea>
 							<br>
 
 							<label>Type :</label>
@@ -365,12 +448,13 @@
 							<label>3ds Max<input type="radio" name="type" value="3ds" <?= ($creation['type'] === '3ds') ? 'checked' : '' ?> ></label><br>
 							<br>
 
-						<?php endforeach ?>
-						<input type="submit" value="Modifier">
-					</form>
+							
+							<input type="submit" value="Modifier">
+						</form>
+					<?php endforeach ?>
 				</section>
 
-				<section id="add_competences">
+				<!-- <section id="add_competences">
 					<form method="post" action="index.php">
 						<input type="hidden" name="formulaire" value="add_competences">
 						
@@ -396,7 +480,7 @@
 
 						<input type="submit" value="Supprimer">
 					</form>
-				</section>
+				</section> -->
 
 			</section>		
 		<?php endif ?>

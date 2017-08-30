@@ -81,10 +81,17 @@ header
 }
 
 #sidemenu{
-	position: absolute;
+	position: fixed;
 	top: 0;
 	right: 0px;
 	height: 100vh;
 	width: 150px;
 	background: black;
+	color: white;
+}
+
+.creation
+{
+	display: inline-block;
+	width: 150px;
 }

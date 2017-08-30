@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 06 Août 2017 à 18:32
+-- Généré le :  Mer 30 Août 2017 à 14:41
 -- Version du serveur :  10.1.19-MariaDB
 -- Version de PHP :  5.6.28
 
@@ -50,16 +50,55 @@ INSERT INTO `competences` (`id`, `name`, `titre`, `points`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `creation`
+-- Structure de la table `creations`
 --
 
-CREATE TABLE `creation` (
+CREATE TABLE `creations` (
   `id` int(11) NOT NULL,
   `type` varchar(255) NOT NULL,
   `titre` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `img` varchar(255) NOT NULL
+  `img` varchar(255) NOT NULL,
+  `temp` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `creations`
+--
+
+INSERT INTO `creations` (`id`, `type`, `titre`, `description`, `img`, `temp`) VALUES
+(1, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(2, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(3, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(4, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(5, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(6, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(7, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(8, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(9, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(10, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(11, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(12, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(13, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(14, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(15, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(16, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(17, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(18, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(19, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(20, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(21, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(22, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(23, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(24, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(25, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(26, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(27, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(28, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(29, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(30, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(31, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
+(32, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min');
 
 -- --------------------------------------------------------
 
@@ -115,9 +154,9 @@ ALTER TABLE `competences`
   ADD UNIQUE KEY `name` (`name`);
 
 --
--- Index pour la table `creation`
+-- Index pour la table `creations`
 --
-ALTER TABLE `creation`
+ALTER TABLE `creations`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -142,10 +181,10 @@ ALTER TABLE `user`
 ALTER TABLE `competences`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
--- AUTO_INCREMENT pour la table `creation`
+-- AUTO_INCREMENT pour la table `creations`
 --
-ALTER TABLE `creation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `creations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT pour la table `infos`
 --

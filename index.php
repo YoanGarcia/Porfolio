@@ -26,12 +26,15 @@
 		<link rel="shortcut icon" type="image/jpg" href="IMG/MonLogoNoir.png" />
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+		<script src="script.js" defer>
+		</script>
 	</head>
 	<body>
 		<header>
 
 			<sidebar id="sidemenu">
-				coucou
+				<a href="" id="close_sidemenu">X</a>
 			</sidebar>
 
 
@@ -63,10 +66,11 @@
 		</section>
 		<section id="creations">
 		<?php foreach ($creations as $creation): ?>
-			<article class="<?=$creation['type']?>">
-				<img src="IMG/<?=$creation['img']?>">
+			<article class="<?=$creation['type']?> creation">
+				<img src="IMG/<?=$creation['img']?>" width=50 height=50 >
 				<h1><?=$creation['titre']?></h1>
 				<p><?=$creation['description']?></p>
+				<p><?=$creation['temp']?></p>
 			</article>
 		<?php endforeach ?>
 		</section>
