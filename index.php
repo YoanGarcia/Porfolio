@@ -44,6 +44,7 @@
 			</section>
 			<a id="bouton_commencer" href="#apropo">Commencer</a>
 		</header>
+
 		<section id="apropo">
 			<img src="IMG/<?=$infos['photoCV']?>" width="200" heigth="200">
 			<h2>A propos de moi</h2>
@@ -51,9 +52,12 @@
 			
 			<a href="<?=$infos['lien_cv']?>" alt="Lien vers mon Curriculum Vitae" title="Lien vers mon Curriculum Vitae">Curriculum Vitae</a>
 		</section>
+
 		<section id="competences">
+		<h1>Mes compétences</h1>
+
 		<?php foreach ($competences as $competence): ?>
-			<section>
+			<section class="competence">
 				<label><?=$competence['titre']?></label>
 				<?php for($i = 0; $i < $competence['points']; $i++): ?>
 					<div class="check"></div>
@@ -63,8 +67,11 @@
 				<?php endfor ?>
 			</section>
 		<?php endforeach ?>
+
 		</section>
+
 		<section id="creations">
+
 		<?php foreach ($creations as $creation): ?>
 			<article class="<?=$creation['type']?> creation">
 				<img src="IMG/<?=$creation['img']?>" width=50 height=50 >
@@ -73,11 +80,13 @@
 				<p><?=$creation['temp']?></p>
 			</article>
 		<?php endforeach ?>
+		
 		</section>
 
 		<footer>
 			<?=$infos['email']?><br>
 			<?=$infos['telephone']?>
 		</footer>
+
 	</body>
 </html>
