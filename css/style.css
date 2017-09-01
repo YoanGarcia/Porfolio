@@ -164,8 +164,16 @@ header
 	border-radius: 12px;	
 }
 
+#creations
+{
+	background-color: rgb(45, 127, 139);
+	padding: 25px;
+	text-align: center;
+}
+
 .creation
 {
 	display: inline-block;
-	width: 150px;
+	width: calc(100%/5 - 20px);
+	background-color: rgb(15, 81, 90);
 }
