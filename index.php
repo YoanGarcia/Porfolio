@@ -48,11 +48,11 @@
 		</header>
 
 		<section id="apropo">
+			<h1>A propos de moi</h1>
 			<div id="img_cv">
 				<img src="IMG/<?=$infos['photoCV']?>" width="200" heigth="200">
 			</div>
 			<div id="desc_apropos">
-				<h2>A propos de moi</h2>
 				<p  alt="A propos de moi" title="A propos de moi"><?=$infos['apropos']?></p><br>
 
 				<a href="<?=$infos['lien_cv']?>" alt="Lien vers mon Curriculum Vitae" title="Lien vers mon Curriculum Vitae">Curriculum Vitae</a>
@@ -64,12 +64,12 @@
 
 		<?php foreach ($competences as $competence): ?>
 			<section class="competence">
-				<label><?=$competence['titre']?></label>
+				<h3><?=$competence['titre']?></h3>
 				<?php for($i = 0; $i < $competence['points']; $i++): ?>
-					<div class="check"></div>
+					<div class="check points"></div>
 				<?php endfor ?>
 				<?php for($i = 0; $i < (5 - $competence['points']); $i++): ?>
-					<div class="uncheck2"><div class="uncheck"><div class="uncheck1"></div></div></div>
+					<div class="points"><div class="uncheck"><div class="uncheck1"></div></div></div>
 				<?php endfor ?>
 			</section>
 		<?php endforeach ?>
