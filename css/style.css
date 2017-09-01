@@ -14,7 +14,7 @@ body
 
 .check
 {
-	display: flex;
+	display: inline-block;
 	background: rgb(45, 127, 139);
 	width: 20px;
 	height: 20px;
@@ -40,6 +40,12 @@ body
 	border-radius: 12px;	
 }
 
+.uncheck2
+{
+	width: 20px;
+	display: inline-block;
+}
+
 .bouton_commencer
 {
 	position: absolute;
@@ -55,6 +61,39 @@ header
 	height: 100vh;
 }
 
+#sidemenu{
+	text-align: center;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	height: 100vh;
+	width: 190px;
+	background: black;
+	color: white;
+}
+
+#open_sidemenu
+{
+	height: 20px;
+	background-color: red;
+	width: 20px;
+	position: fixed;
+	right: 10px;
+	top: 10px;
+	text-decoration: none;
+}
+
+#close_sidemenu
+{
+	height: 20px;
+	background-color: red;
+	width: 20px;
+	position: fixed;
+	right: 10px;
+	top: 10px;
+	text-decoration: none;
+}
+
 #nom_desc
 {
 	display: inline-block;
@@ -63,13 +102,29 @@ header
 
 #apropo
 {
-	text-align: center;
-	background: rgb(15, 81, 90);
+	background: rgb(45, 127, 139);
+	height: 500px;
 }
+
+#img_cv
+{
+	width: 200px;
+	height:200px;
+	margin: 150px 40px 50px 40px;
+	display: inline-block;
+}
+
+#desc_apropos
+{
+	display: inline-block;
+	width: calc(100% - 284px);
+}
+
+
 
 #competences
 {
-	/*text-align: center;*/
+	text-align: center;
 	padding: 0% 10% 0% 10%;
 	background: rgb(15, 81, 90);
 }
@@ -78,16 +133,6 @@ header
 {
 	display: inline-block;
 	width: 49%;
-}
-
-#sidemenu{
-	position: fixed;
-	top: 0;
-	right: 0px;
-	height: 100vh;
-	width: 150px;
-	background: black;
-	color: white;
 }
 
 .creation

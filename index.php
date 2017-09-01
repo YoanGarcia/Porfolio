@@ -33,8 +33,10 @@
 	<body>
 		<header>
 
+			<a href="" id="open_sidemenu"></a>
+
 			<sidebar id="sidemenu">
-				<a href="" id="close_sidemenu">X</a>
+				<a href="" id="close_sidemenu"></a>
 			</sidebar>
 
 
@@ -46,11 +48,15 @@
 		</header>
 
 		<section id="apropo">
-			<img src="IMG/<?=$infos['photoCV']?>" width="200" heigth="200">
-			<h2>A propos de moi</h2>
-			<p  alt="A propos de moi" title="A propos de moi"><?=$infos['apropos']?></p><br>
-			
-			<a href="<?=$infos['lien_cv']?>" alt="Lien vers mon Curriculum Vitae" title="Lien vers mon Curriculum Vitae">Curriculum Vitae</a>
+			<div id="img_cv">
+				<img src="IMG/<?=$infos['photoCV']?>" width="200" heigth="200">
+			</div>
+			<div id="desc_apropos">
+				<h2>A propos de moi</h2>
+				<p  alt="A propos de moi" title="A propos de moi"><?=$infos['apropos']?></p><br>
+
+				<a href="<?=$infos['lien_cv']?>" alt="Lien vers mon Curriculum Vitae" title="Lien vers mon Curriculum Vitae">Curriculum Vitae</a>
+			</div>
 		</section>
 
 		<section id="competences">
@@ -63,7 +69,7 @@
 					<div class="check"></div>
 				<?php endfor ?>
 				<?php for($i = 0; $i < (5 - $competence['points']); $i++): ?>
-					<div class="uncheck"><div class="uncheck1"></div></div>
+					<div class="uncheck2"><div class="uncheck"><div class="uncheck1"></div></div></div>
 				<?php endfor ?>
 			</section>
 		<?php endforeach ?>
@@ -80,7 +86,7 @@
 				<p><?=$creation['temp']?></p>
 			</article>
 		<?php endforeach ?>
-		
+
 		</section>
 
 		<footer>
