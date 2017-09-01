@@ -121,7 +121,7 @@ header
 
 .competence h3
 {
-	width: 40%;
+	width: 20%;
 	display: inline-block;
 }
 
@@ -131,7 +131,7 @@ header
 	height: 20px;
 	border-radius: 20px;
 	display: inline-block;
-	margin: 0px 0px 0px 10px;
+	margin: 0px 0px 0px 28px;
 }
 
 .check
@@ -176,4 +176,17 @@ header
 	display: inline-block;
 	width: calc(100%/5 - 20px);
 	background-color: rgb(15, 81, 90);
+	margin: 2px;
+}
+
+.creation p 
+{
+	display: none;
+}
+
+.creation img
+{
+	margin: 10px 0px 0px 0px;
+	width: 150px;
+	height: 150px;
 }
