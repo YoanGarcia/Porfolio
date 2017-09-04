@@ -81,13 +81,13 @@
 			<h1>Mes créations</h1>
 
 			<section id="select_creations">
-				<img src="IMG/lion.jpg" width=60 height=60>
+				<img src="IMG/MonLogoNoir.png" width=60 height=60>
 				<a id="all_creations" href="">Tous les travaux</a>
-				<img src="IMG/lion.jpg" width=60 height=60>
+				<img src="IMG/Ai.png" width=60 height=60>
 				<a id="illu_creations" href="">Fait avec Illustrator</a>
-				<img src="IMG/lion.jpg" width=60 height=60>
+				<img src="IMG/Ps.png" width=60 height=60>
 				<a id="photo_creations" href="">Fait avec Photoshop</a>
-				<img src="IMG/lion.jpg" width=60 height=60>
+				<img src="IMG/3dsMax.jpg" width=60 height=60>
 				<a id="creations_3ds" href="">Fait avec 3ds Max</a>
 			</section>
 
