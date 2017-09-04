@@ -171,6 +171,16 @@ header
 	text-align: center;
 }
 
+#select_creations
+{
+	color: white;
+}
+
+#select_creations a
+{
+	text-decoration: none;
+}
+
 .creation
 {
 	display: inline-block;

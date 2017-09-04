@@ -60,32 +60,45 @@
 		</section>
 
 		<section id="competences">
-		<h1>Mes compétences</h1>
+			<h1>Mes compétences</h1>
 
-		<?php foreach ($competences as $competence): ?>
-			<section class="competence">
-				<h3><?=$competence['titre']?></h3>
-				<?php for($i = 0; $i < $competence['points']; $i++): ?>
-					<div class="check points"></div>
-				<?php endfor ?>
-				<?php for($i = 0; $i < (5 - $competence['points']); $i++): ?>
-					<div class="points"><div class="uncheck"><div class="uncheck1"></div></div></div>
-				<?php endfor ?>
-			</section>
-		<?php endforeach ?>
+			<?php foreach ($competences as $competence): ?>
+				<section class="competence">
+					<h3><?=$competence['titre']?></h3>
+					<?php for($i = 0; $i < $competence['points']; $i++): ?>
+						<div class="check points"></div>
+					<?php endfor ?>
+					<?php for($i = 0; $i < (5 - $competence['points']); $i++): ?>
+						<div class="points"><div class="uncheck"><div class="uncheck1"></div></div></div>
+					<?php endfor ?>
+				</section>
+			<?php endforeach ?>
 
 		</section>
 
 		<section id="creations">
 
-		<?php foreach ($creations as $creation): ?>
-			<article class="<?=$creation['type']?> creation">
-				<img src="IMG/<?=$creation['img']?>" width=50 height=50 >
-				<h1><?=$creation['titre']?></h1>
-				<p><?=$creation['description']?></p>
-				<p><?=$creation['temp']?></p>
-			</article>
-		<?php endforeach ?>
+			<h1>Mes créations</h1>
+
+			<section id="select_creations">
+				<img src="IMG/lion.jpg" width=60 height=60>
+				<a id="all_creations" href="">Tous les travaux</a>
+				<img src="IMG/lion.jpg" width=60 height=60>
+				<a id="illu_creations" href="">Fait avec Illustrator</a>
+				<img src="IMG/lion.jpg" width=60 height=60>
+				<a id="photo_creations" href="">Fait avec Photoshop</a>
+				<img src="IMG/lion.jpg" width=60 height=60>
+				<a id="creations_3ds" href="">Fait avec 3ds Max</a>
+			</section>
+
+			<?php foreach ($creations as $creation): ?>
+				<article class="<?=$creation['type']?> creation">
+					<img src="IMG/<?=$creation['img']?>" width=50 height=50 >
+					<h1><?=$creation['titre']?></h1>
+					<p><?=$creation['description']?></p>
+					<p><?=$creation['temp']?></p>
+				</article>
+			<?php endforeach ?>
 
 		</section>
 
