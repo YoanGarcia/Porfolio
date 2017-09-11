@@ -106,6 +106,5 @@
 			<?=$infos['email']?><br>
 			<?=$infos['telephone']?>
 		</footer>
-
 	</body>
 </html>

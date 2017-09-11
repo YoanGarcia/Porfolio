@@ -212,6 +212,10 @@
 				}		
 			}
 
+			/**
+			 *   MODIFIE UNE/DES CREATION/S
+			 */
+
 			if($post['formulaire'] === 'edit_creation')
 			{				
 				if(!isset($post['type']) || empty($post['type']))
@@ -234,7 +238,6 @@
 					$errors[] = 'le temp ne doit pas étre vide';
 				}
 
-				var_dump($_FILES);
 				if(!empty($_FILES) && isset($_FILES['picture']))
 				{	
 					if ($_FILES['picture']['error'] == UPLOAD_ERR_OK) 
@@ -257,7 +260,14 @@
 				    }
 				    else
 				    {
-				    	$errors[] = 'erreur d\'upload de limage';
+				    	if($_FILES['picture']['error'] != 4)
+				    	{
+				    		$errors[] =  'erreur d\'upload de limage . code : '.$_FILES['picture']['error'];
+				    	}
+				    	else
+				    	{
+				    		$img = $post['creation_img'];
+				    	}
 				    	unset($_FILES['picture']);
 				    }
 				}
@@ -269,6 +279,75 @@
 				if(count($errors) == 0)
 				{
 					$req = $bdd->prepare('UPDATE creations SET type = ?, titre = ?, description = ?, img = ?, temp = ? WHERE id = '.$post['creation_id']);
+					if(!$req->execute([
+							$post['type'],
+							$post['titre'],
+							$post['description'],
+							$img,
+							$post['temp'],
+						]))
+					{
+						var_dump($req->errorinfo());
+						echo '<script>alert(\'erreur impossible de metre a jour la competence '.$competence['titre'].'\')</script>';
+					}
+				}
+			}
+
+			/**
+			 *  AJOUTE UNE CREATION
+			 */
+
+			if($post['formulaire'] === 'add_creation')
+			{				
+				if(!isset($post['type']) || empty($post['type']))
+				{
+					$errors[] = 'le Type ne doit pas étre vide';
+				}
+
+				if(!isset($post['titre']) || empty($post['titre']))
+				{
+					$errors[] = 'le titre ne doit pas étre vide';
+				}
+
+				if(!isset($post['description']) || empty($post['description']))
+				{
+					$errors[] = 'la description ne doit pas étre vide';
+				}
+
+				if(!isset($post['temp']) || empty($post['temp']))
+				{
+					$errors[] = 'le temp ne doit pas étre vide';
+				}
+
+				if(!empty($_FILES) && isset($_FILES['picture']))
+				{	
+					if ($_FILES['picture']['error'] == UPLOAD_ERR_OK) 
+				    {
+				        $nomFichier = $_FILES['picture']['name'];
+				        $tmpFichier = $_FILES['picture']['tmp_name']; 
+				                       
+			            $newFileName = explode('.', $nomFichier);
+			            $fileExtension = end($newFileName);
+
+			            $finalFileName = time().'.'.$fileExtension; 
+
+			            if(move_uploaded_file($tmpFichier, '../IMG/'.$finalFileName)) 
+			            {
+			            	$img = $finalFileName;
+			                echo '<script>alert(\'la photo a bien était mise à jour\')</script>';  
+			                unset($_FILES['picture']);  
+			            }
+				    }
+				    else
+				    {
+				    	$errors[] =  'erreur d\'upload de limage . code : '.$_FILES['picture']['error'];
+				    	unset($_FILES['picture']);
+				    }
+				}
+
+				if(count($errors) == 0)
+				{
+					$req = $bdd->prepare('INSERT INTO creations (type, titre, description, img, temp) VALUES(?,?,?,?,?)');
 					if(!$req->execute([
 							$post['type'],
 							$post['titre'],
@@ -416,6 +495,38 @@
 				<br>
 				<br>
 
+				<section id="add_creation">
+					<form method="post" action="index.php" enctype="multipart/form-data">
+						<input type="hidden" name="formulaire" value="add_creation">
+						
+						<label>Titre</label>
+						<input type="text" name="titre">
+						<br>
+
+						<label>Temp de travail</label>
+						<input type="text" name="temp">
+						<br>
+
+						<br>
+						<label>Images</label>
+						<input type="file" name="picture">
+						<br>
+
+						<label>Description</label>
+						<textarea name="description"></textarea>
+						<br>
+
+						<label>Type :</label>
+						<br>
+						<label>Adobe Photoshop<input type="radio" name="type" value="photo"></label><br>
+						<label>Adobe Illustrator<input type="radio" name="type" value="illu"></label><br>
+						<label>3ds Max<input type="radio" name="type" value="c3ds"></label><br>
+						<br>
+
+						<input type="submit" value="Ajouter">
+					</form>
+				</section>
+
 				<section id="edit_creation">
 					<?php foreach ($creations as $creation): ?>
 						<form method="post" action="index.php" enctype="multipart/form-data">
@@ -445,7 +556,7 @@
 							<br>
 							<label>Adobe Photoshop<input type="radio" name="type" value="photo" <?= ($creation['type'] === 'photo') ? 'checked' : '' ?> ></label><br>
 							<label>Adobe Illustrator<input type="radio" name="type" value="illu" <?= ($creation['type'] === 'illu') ? 'checked' : '' ?> ></label><br>
-							<label>3ds Max<input type="radio" name="type" value="3ds" <?= ($creation['type'] === '3ds') ? 'checked' : '' ?> ></label><br>
+							<label>3ds Max<input type="radio" name="type" value="c3ds" <?= ($creation['type'] === 'c3ds') ? 'checked' : '' ?> ></label><br>
 							<br>
 
 							

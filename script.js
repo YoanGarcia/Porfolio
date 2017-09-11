@@ -145,4 +145,25 @@ button_3ds_creations.addEventListener('click', function(e)
 			crea.style.display = 'inline-block';
 		});
 	}
+		
+});
+
+var test_crea = document.querySelectorAll('.creation')[0];
+var test_crea_p = document.querySelectorAll('.creation p');
+
+test_crea.addEventListener('click', function(e)
+{
+	e.preventDefault();
+
+	console.log("click test_crea");
+
+	test_crea_p[0].style.display = "inline";
+	test_crea_p[1].style.display = "inline";
+	this.style.position = "fixed";
+	this.style.width = "600px";
+	this.style.height = "400px";
+	this.style.left = "calc(100vw/2 - 300px)";
+	this.style.top = "50px";
+	this.style.backgroundColor = "red";
+
 });
