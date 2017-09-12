@@ -37,6 +37,17 @@
 
 			<sidebar id="sidemenu">
 				<a href="" id="close_sidemenu"></a>
+				<ul>
+					<li><a href="#apropo">A propos</a></li>
+					<hr>
+					<li><a href="#competences">Compétence</a></li>
+					<hr>
+					<li><a href="#MesCreations">Creations</a></li>
+					<hr>
+					<li><a href="#contact">Contact</a></li>
+					<hr>
+				</ul>
+				<img src="IMG/MonLogoNoir.png" width=50 height=50>
 			</sidebar>
 
 
@@ -76,7 +87,7 @@
 
 		</section>
 
-		<section id="creations">
+		<section id="MesCreations">
 
 			<h1>Mes créations</h1>
 
@@ -91,18 +102,21 @@
 				<a id="creations_3ds" href="">Fait avec 3ds Max</a>
 			</section>
 
-			<?php foreach ($creations as $creation): ?>
-				<article class="<?=$creation['type']?> creation">
-					<img src="IMG/<?=$creation['img']?>" width=50 height=50 >
-					<h1><?=$creation['titre']?></h1>
-					<p><?=$creation['description']?></p>
-					<p><?=$creation['temp']?></p>
-				</article>
-			<?php endforeach ?>
+			<section id="creation">
+				<?php foreach ($creations as $creation): ?>
+					<article class="<?=$creation['type']?> creation">
+						<img src="IMG/<?=$creation['img']?>" width=50 height=50 >
+						<h1><?=$creation['titre']?></h1>
+						<p><?=$creation['description']?></p>
+						<p><?=$creation['temp']?></p>
+					</article>
+				<?php endforeach ?>	
+			</section>
+			
 
 		</section>
 
-		<footer>
+		<footer id="contact">
 			<?=$infos['email']?><br>
 			<?=$infos['telephone']?>
 		</footer>
