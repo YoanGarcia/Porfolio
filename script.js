@@ -166,15 +166,12 @@ Array.prototype.map.call(creation, function(crea)
 		}
 
 		let new_div = document.createElement('section');
-
-		new_div.id = 'popup_creation';
-
-		new_div.innerHTML = this.innerHTML;
-
 		let close = document.createElement('section');
 
 		close.id = 'popup_creation_close';
 
+		new_div.id = 'popup_creation';
+		new_div.innerHTML = this.innerHTML;
 		new_div.appendChild(close);
 
 		body.appendChild(new_div);
@@ -188,6 +185,5 @@ Array.prototype.map.call(creation, function(crea)
 				popup.remove();	
 			});
 		}
-
 	});
 });
