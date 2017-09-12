@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 04 Septembre 2017 à 12:15
+-- Généré le :  Mar 12 Septembre 2017 à 14:10
 -- Version du serveur :  10.1.19-MariaDB
 -- Version de PHP :  5.6.28
 
@@ -67,7 +67,7 @@ CREATE TABLE `creations` (
 --
 
 INSERT INTO `creations` (`id`, `type`, `titre`, `description`, `img`, `temp`) VALUES
-(1, 'photo', 'aze photo', 'qwertya', 'lion.png', '22h15min'),
+(1, 'photo', 'aze photo', 'qwertya', 'lion.jpg', '22h15min'),
 (2, 'photo', 'aze photo', 'qwertya', 'lion.png', '22h15min'),
 (3, 'photo', 'aze photo', 'qwertya', 'lion.png', '22h15min'),
 (4, 'photo', 'aze photo', 'qwertya', 'lion.png', '22h15min'),
@@ -82,26 +82,8 @@ INSERT INTO `creations` (`id`, `type`, `titre`, `description`, `img`, `temp`) VA
 (13, 'c3ds', 'aze c3ds', 'qwertya', 'lion.png', '22h15min'),
 (14, 'c3ds', 'aze c3ds', 'qwertya', 'lion.png', '22h15min'),
 (15, 'c3ds', 'aze c3ds', 'qwertya', 'lion.png', '22h15min'),
-(16, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
-(17, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
-(18, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
-(19, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
-(20, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
-(21, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
-(22, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
-(23, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
-(24, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
-(25, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
-(26, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
-(27, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
-(28, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
-(29, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
-(30, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
-(31, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
-(32, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
-(33, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
-(34, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min'),
-(35, 'photo', 'azea', 'qwertya', 'lion.png', '22h15min');
+(16, 'c3ds', 'sdqsdqsdqsd', 'qsdqsdqsdqsd', '.png', '03h45m'),
+(36, 'c3ds', 'ajout des azeazeazez', 'azeqdazesdfdsgsersdregfxdtxdegm^*lpm^gfhdftdgbdrgdxbg', '1505139326.jpg', '02h35minutes');
 
 -- --------------------------------------------------------
 
@@ -187,7 +169,7 @@ ALTER TABLE `competences`
 -- AUTO_INCREMENT pour la table `creations`
 --
 ALTER TABLE `creations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT pour la table `infos`
 --
