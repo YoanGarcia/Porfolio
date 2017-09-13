@@ -1,7 +1,14 @@
+@font-face {
+    font-family: 'eaglelake';
+    src: url('font/Eagle_Lake/EagleLake-Regular.ttf');
+}
+
 *
 {
 	margin: 0px;
 	padding: 0px;
+	font-family: 'eaglelake';
+	color: white;
 }
 
 body
@@ -38,6 +45,7 @@ header
 	width: 190px;
 	background: black;
 	color: white;
+	z-index: 1;
 }
 
 #sidemenu ul
