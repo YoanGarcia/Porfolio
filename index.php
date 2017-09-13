@@ -33,10 +33,10 @@
 	<body>
 		<header>
 
-			<a href="" id="open_sidemenu"></a>
+			<a href="" id="open_sidemenu">Menu</a>
 
 			<sidebar id="sidemenu">
-				<a href="" id="close_sidemenu"></a>
+				<a href="" id="close_sidemenu">X</a>
 				<ul>
 					<li><a href="#apropo">A propos</a></li>
 					<hr>
@@ -47,12 +47,14 @@
 					<li><a href="#contact">Contact</a></li>
 					<hr>
 				</ul>
-				<img src="IMG/MonLogoBlanc.png" width=50 height=50>
+				<img src="IMG/MonLogoBlanc.png" width=100>
 			</sidebar>
 
 
 			<section id="nom_desc">
+				<hr>
 				<h2>Yoan Garcia</h2>
+				<hr>
 				<p>Infographiste multimédia</p>
 			</section>
 			<a id="bouton_commencer" href="#apropo">Commencer</a>

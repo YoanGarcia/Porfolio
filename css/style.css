@@ -37,6 +37,7 @@ header
 }
 
 #sidemenu{
+	display: none;
 	text-align: center;
 	position: fixed;
 	top: 0px;
@@ -50,7 +51,7 @@ header
 
 #sidemenu ul
 {
-	margin: 60px 0px 20px 0px;
+	margin: 60px 0px 50px 0px;
 }
 
 #sidemenu li
@@ -72,22 +73,16 @@ header
 
 #open_sidemenu
 {
-	height: 20px;
-	background-color: red;
-	width: 20px;
 	position: fixed;
-	right: 10px;
+	right: 20px;
 	top: 10px;
 	text-decoration: none;
 }
 
 #close_sidemenu
 {
-	height: 20px;
-	background-color: red;
-	width: 20px;
 	position: fixed;
-	right: 10px;
+	right: 20px;
 	top: 10px;
 	text-decoration: none;
 }
