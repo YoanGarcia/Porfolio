@@ -53,9 +53,9 @@
 
 			<section id="nom_desc">
 				<hr>
-				<h2>Yoan Garcia</h2>
+				<h1>Yoan Garcia</h1>
 				<hr>
-				<p>Infographiste multimédia</p>
+				<h2>Infographiste multimédia</h2>
 			</section>
 			<a id="bouton_commencer" href="#apropo">Commencer</a>
 		</header>

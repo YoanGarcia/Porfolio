@@ -21,13 +21,6 @@ body
 	margin: 0 auto;
 }
 
-.bouton_commencer
-{
-	position: absolute;
-	bottom: 0px;
-	left: 0px;
-}
-
 header
 {
 	text-align: center;
@@ -91,6 +84,32 @@ header
 {
 	display: inline-block;
 	margin: auto;
+	width: 500px;
+}
+
+#nom_desc hr
+{
+	margin: 5px 0px;
+	width: 100%;
+}
+
+#nom_desc h1
+{
+	font-size: 33pt;
+}
+
+#nom_desc h2
+{
+	margin: 0px 0px 0px 0px;
+	font-size: 15pt;
+}
+
+#bouton_commencer
+{
+	position: absolute;
+	width: 100px;
+	bottom: 0px;
+	left: calc(100%/2 - 50px);
 }
 
 #apropo
