@@ -59,6 +59,11 @@ header
 	margin: 10px 0px 10px 0px;
 }
 
+#sidemenu li a
+{
+	text-decoration: none;
+}
+
 #sidemenu hr
 {
 	width: 100px;
@@ -97,6 +102,7 @@ header
 {
 	background: rgb(45, 127, 139);
 	height: 450px;
+	text-align: center;
 }
 
 #apropo h1
@@ -104,6 +110,21 @@ header
 	font-size: 26pt;
     text-align: center;
     padding: 0.4em 0em 0.4em 0em;
+}
+
+#curi
+{
+	padding: 5px 10px 5px 10px;
+	border: white solid 2px;
+	border-radius: 2px;
+	text-decoration: none;
+	text-align: center;
+	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+#curi:hover
+{
+	background-color: rgba(255, 255, 255, 0.075);
 }
 
 #img_cv

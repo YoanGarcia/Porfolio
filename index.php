@@ -65,9 +65,8 @@
 			</div>
 			<div id="desc_apropos">
 				<p  alt="A propos de moi" title="A propos de moi"><?=$infos['apropos']?></p><br>
-
-				<a href="<?=$infos['lien_cv']?>" alt="Lien vers mon Curriculum Vitae" title="Lien vers mon Curriculum Vitae">Curriculum Vitae</a>
 			</div>
+			<a id="curi" href="<?=$infos['lien_cv']?>" alt="Lien vers mon Curriculum Vitae" title="Lien vers mon Curriculum Vitae">Curriculum Vitae</a>
 		</section>
 
 		<section id="competences">
