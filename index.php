@@ -68,7 +68,7 @@
 			<div id="desc_apropos">
 				<p  alt="A propos de moi" title="A propos de moi"><?=$infos['apropos']?></p><br>
 			</div>
-			<a id="curi" href="<?=$infos['lien_cv']?>" alt="Lien vers mon Curriculum Vitae" title="Lien vers mon Curriculum Vitae">Curriculum Vitae</a>
+			<a id="curi" class="buttonblanc" href="<?=$infos['lien_cv']?>" alt="Lien vers mon Curriculum Vitae" title="Lien vers mon Curriculum Vitae">Curriculum Vitae</a>
 		</section>
 
 		<section id="competences">
@@ -77,12 +77,14 @@
 			<?php foreach ($competences as $competence): ?>
 				<section class="competence">
 					<h3><?=$competence['titre']?></h3>
-					<?php for($i = 0; $i < $competence['points']; $i++): ?>
-						<div class="check points"></div>
-					<?php endfor ?>
-					<?php for($i = 0; $i < (5 - $competence['points']); $i++): ?>
-						<div class="points"><div class="uncheck"><div class="uncheck1"></div></div></div>
-					<?php endfor ?>
+					<section id="section_points">
+						<?php for($i = 0; $i < $competence['points']; $i++): ?>
+							<div class="check points"></div>
+						<?php endfor ?>
+						<?php for($i = 0; $i < (5 - $competence['points']); $i++): ?>
+							<div class="points"><div class="uncheck"><div class="uncheck1"></div></div></div>
+						<?php endfor ?>
+					</section>
 				</section>
 			<?php endforeach ?>
 
@@ -94,13 +96,13 @@
 
 			<section id="select_creations">
 				<img src="IMG/MonLogoNoir.png" width=60 height=60>
-				<a id="all_creations" href="">Tous les travaux</a>
+				<a id="all_creations" class="buttonblanc" href="">Tous les travaux</a>
 				<img src="IMG/Ai.png" width=60 height=60>
-				<a id="illu_creations" href="">Fait avec Illustrator</a>
+				<a id="illu_creations" class="buttonblanc" href="">Fait avec Illustrator</a>
 				<img src="IMG/Ps.png" width=60 height=60>
-				<a id="photo_creations" href="">Fait avec Photoshop</a>
+				<a id="photo_creations" class="buttonblanc" href="">Fait avec Photoshop</a>
 				<img src="IMG/3dsMax.jpg" width=60 height=60>
-				<a id="creations_3ds" href="">Fait avec 3ds Max</a>
+				<a id="creations_3ds" class="buttonblanc" href="">Fait avec 3ds Max</a>
 			</section>
 
 			<section id="creation">
@@ -118,8 +120,12 @@
 		</section>
 
 		<footer id="contact">
-			<?=$infos['email']?><br>
-			<?=$infos['telephone']?>
+			<p>
+				<span><?=$infos['email']?></span><span><?=$infos['telephone']?></span>
+			</p>
+			<p>
+				© 2017 All right reserved | Design : Garcia Yoan
+			</p>
 		</footer>
 	</body>
 </html>

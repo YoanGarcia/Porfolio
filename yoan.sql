@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 12 Septembre 2017 à 14:10
+-- Généré le :  Jeu 14 Septembre 2017 à 12:18
 -- Version du serveur :  10.1.19-MariaDB
 -- Version de PHP :  5.6.28
 
