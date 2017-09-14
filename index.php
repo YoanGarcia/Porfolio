@@ -109,9 +109,11 @@
 				<?php foreach ($creations as $creation): ?>
 					<article class="<?=$creation['type']?> creation">
 						<img src="IMG/<?=$creation['img']?>" width=50 height=50 >
-						<h1><?=$creation['titre']?></h1>
-						<p><?=$creation['description']?></p>
-						<p><?=$creation['temp']?></p>
+						<section id="description_creation">
+							<h1><?=$creation['titre']?></h1>
+							<p><?=$creation['description']?></p>
+							<p><?=$creation['temp']?></p>
+						</section>
 					</article>
 				<?php endforeach ?>	
 			</section>
