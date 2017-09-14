@@ -34,105 +34,111 @@
 	</head>
 	<body>
 		<header>
-			<nav>
-				<img src="IMG/MonLogoBlanc.png"> <a class='lake js-scrollTo' href="#">Accueil</a>	
-			</nav>
+			<section class="t960px">
+				<nav>
+					<img src="IMG/MonLogoBlanc.png"> <a class='lake js-scrollTo' href="#">Accueil</a>	
+				</nav>
 
-			<a href="" class='lake' id="open_sidemenu">Menu</a>
+				<a href="" class='lake' id="open_sidemenu">Menu</a>
 
-			<sidebar id="sidemenu">
-				<a href="" class='lake' id="close_sidemenu">X</a>
-				<ul>
-					<li><a class='lake js-scrollTo' href="#apropo">A propos</a></li>
+				<sidebar id="sidemenu">
+					<a href="" class='lake' id="close_sidemenu">X</a>
+					<ul>
+						<li><a class='lake js-scrollTo' href="#apropo">A propos</a></li>
+						<hr>
+						<li><a class='lake js-scrollTo' href="#competences">Compétence</a></li>
+						<hr>
+						<li><a class='lake js-scrollTo' href="#MesCreations">Creations</a></li>
+						<hr>
+						<li><a class='lake js-scrollTo' href="#contact">Contact</a></li>
+					</ul>
+					<img src="IMG/MonLogoBlanc.png" width=110>
+				</sidebar>
+
+
+				<section id="nom_desc">
 					<hr>
-					<li><a class='lake js-scrollTo' href="#competences">Compétence</a></li>
+					<h1 class='lake'>Yoan Garcia</h1>
 					<hr>
-					<li><a class='lake js-scrollTo' href="#MesCreations">Creations</a></li>
-					<hr>
-					<li><a class='lake js-scrollTo' href="#contact">Contact</a></li>
-				</ul>
-				<img src="IMG/MonLogoBlanc.png" width=110>
-			</sidebar>
-
-
-			<section id="nom_desc">
-				<hr>
-				<h1 class='lake'>Yoan Garcia</h1>
-				<hr>
-				<h2 class='lake'>Infographiste multimédia</h2>
+					<h2 class='lake'>Infographiste multimédia</h2>
+				</section>
+				<a id="bouton_commencer" href="#apropo" class='lake js-scrollTo'>Commencer</a>
 			</section>
-			<a id="bouton_commencer" href="#apropo" class='lake'>Commencer</a>
 		</header>
 
 		<section id="apropo">
-			<h1 class='lake'>A propos de moi</h1>
-			<div id="img_cv">
-				<img src="IMG/<?=$infos['photoCV']?>" width="200" heigth="200">
-			</div>
-			<div id="desc_apropos">
-				<p  alt="A propos de moi" title="A propos de moi"><?=$infos['apropos']?></p><br>
-			</div>
-			<a id="curi" class="buttonblanc" href="<?=$infos['lien_cv']?>" alt="Lien vers mon Curriculum Vitae" title="Lien vers mon Curriculum Vitae">Curriculum Vitae</a>
+			<section class="t960px">
+				<h1 class='lake'>A propos de moi</h1>
+				<div id="img_cv">
+					<img src="IMG/<?=$infos['photoCV']?>" width="200" heigth="200">
+				</div>
+				<div id="desc_apropos">
+					<p  alt="A propos de moi" title="A propos de moi"><?=$infos['apropos']?></p><br>
+				</div>
+				<a id="curi" class="buttonblanc" href="<?=$infos['lien_cv']?>" alt="Lien vers mon Curriculum Vitae" title="Lien vers mon Curriculum Vitae">Curriculum Vitae</a>
+			</section>
 		</section>
 
 		<section id="competences">
-			<h1 class='lake'>Mes compétences</h1>
+			<section class="t960px">
+				<h1 class='lake'>Mes compétences</h1>
 
-			<?php foreach ($competences as $competence): ?>
-				<section class="competence">
-					<h3><?=$competence['titre']?></h3>
-					<section id="section_points">
-						<?php for($i = 0; $i < $competence['points']; $i++): ?>
-							<div class="check points"></div>
-						<?php endfor ?>
-						<?php for($i = 0; $i < (5 - $competence['points']); $i++): ?>
-							<div class="points"><div class="uncheck"><div class="uncheck1"></div></div></div>
-						<?php endfor ?>
+				<?php foreach ($competences as $competence): ?>
+					<section class="competence">
+						<h3><?=$competence['titre']?></h3>
+						<section id="section_points">
+							<?php for($i = 0; $i < $competence['points']; $i++): ?>
+								<div class="check points"></div>
+							<?php endfor ?>
+							<?php for($i = 0; $i < (5 - $competence['points']); $i++): ?>
+								<div class="points"><div class="uncheck"><div class="uncheck1"></div></div></div>
+							<?php endfor ?>
+						</section>
 					</section>
-				</section>
-			<?php endforeach ?>
-
+				<?php endforeach ?>	
+			</section>
 		</section>
 
 		<section id="MesCreations">
+			<section class="t960px">
+				<h1 class='lake'>Mes créations</h1>
 
-			<h1 class='lake'>Mes créations</h1>
+				<section id="select_creations">
+					<img src="IMG/MonLogoNoir.png" width=60 height=60>
+					<a id="all_creations" class="buttonblanc" href="">Tous les travaux</a>
+					<img src="IMG/Ai.png" width=60 height=60>
+					<a id="illu_creations" class="buttonblanc" href="">Fait avec Illustrator</a>
+					<img src="IMG/Ps.png" width=60 height=60>
+					<a id="photo_creations" class="buttonblanc" href="">Fait avec Photoshop</a>
+					<img src="IMG/3dsMax.jpg" width=60 height=60>
+					<a id="creations_3ds" class="buttonblanc" href="">Fait avec 3ds Max</a>
+				</section>
 
-			<section id="select_creations">
-				<img src="IMG/MonLogoNoir.png" width=60 height=60>
-				<a id="all_creations" class="buttonblanc" href="">Tous les travaux</a>
-				<img src="IMG/Ai.png" width=60 height=60>
-				<a id="illu_creations" class="buttonblanc" href="">Fait avec Illustrator</a>
-				<img src="IMG/Ps.png" width=60 height=60>
-				<a id="photo_creations" class="buttonblanc" href="">Fait avec Photoshop</a>
-				<img src="IMG/3dsMax.jpg" width=60 height=60>
-				<a id="creations_3ds" class="buttonblanc" href="">Fait avec 3ds Max</a>
+				<section id="creation">
+					<?php foreach ($creations as $creation): ?>
+						<article class="<?=$creation['type']?> creation">
+							<img src="IMG/<?=$creation['img']?>" width=50 height=50 >
+							<section class="description_creation">
+								<h1><?=$creation['titre']?></h1>
+								<p><?=$creation['description']?></p>
+								<p><?=$creation['temp']?></p>
+							</section>
+						</article>
+					<?php endforeach ?>	
+				</section>				
 			</section>
-
-			<section id="creation">
-				<?php foreach ($creations as $creation): ?>
-					<article class="<?=$creation['type']?> creation">
-						<img src="IMG/<?=$creation['img']?>" width=50 height=50 >
-						<section class="description_creation">
-							<h1><?=$creation['titre']?></h1>
-							<p><?=$creation['description']?></p>
-							<p><?=$creation['temp']?></p>
-						</section>
-					</article>
-				<?php endforeach ?>	
-			</section>
-			
-
 		</section>
 
 		<footer id="contact">
-			<p>
-				<span class="fa fa-envelope-o" aria-hidden="true" alt="Mon email : <?=$infos['email']?>" title="Mon email">  <?=$infos['email']?></span>
-				<span class="fa fa-mobile" aria-hidden="true" alt="Mon numero de téléphone : <?=$infos['telephone']?>" title="Mon téléphone">  <?=$infos['telephone']?></span>
-			</p>
-			<p>
-				© 2017 All right reserved | Design : Garcia Yoan
-			</p>
+			<section class="t960px">
+				<p>
+					<span class="fa fa-envelope-o" aria-hidden="true" alt="Mon email : <?=$infos['email']?>" title="Mon email">  <?=$infos['email']?></span>
+					<span class="fa fa-mobile" aria-hidden="true" alt="Mon numero de téléphone : <?=$infos['telephone']?>" title="Mon téléphone">  <?=$infos['telephone']?></span>
+				</p>
+				<p>
+					© 2017 All right reserved | Design : Garcia Yoan
+				</p>
+			</section>
 		</footer>
 	</body>
 </html>
