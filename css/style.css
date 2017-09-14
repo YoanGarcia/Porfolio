@@ -51,11 +51,12 @@ nav img
 	height: 50px;
 }
 
-nav span
+nav a
 {
 	position: relative;
 	margin-left: 15px;
 	top: -25px;
+	text-decoration: none;
 }
 
 #sidemenu{

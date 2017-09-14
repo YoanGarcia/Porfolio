@@ -28,13 +28,14 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 
-		<script src="script.js" defer>
-		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="js/script.js" defer></script>
+		<script src="js/smoothscroll.js" defer></script>
 	</head>
 	<body>
 		<header>
 			<nav>
-				<img src="IMG/MonLogoBlanc.png"> <span class='lake'>Accueil</span>	
+				<img src="IMG/MonLogoBlanc.png"> <a class='lake js-scrollTo' href="#">Accueil</a>	
 			</nav>
 
 			<a href="" class='lake' id="open_sidemenu">Menu</a>
@@ -42,13 +43,13 @@
 			<sidebar id="sidemenu">
 				<a href="" class='lake' id="close_sidemenu">X</a>
 				<ul>
-					<li><a class='lake' href="#apropo">A propos</a></li>
+					<li><a class='lake js-scrollTo' href="#apropo">A propos</a></li>
 					<hr>
-					<li><a class='lake' href="#competences">Compétence</a></li>
+					<li><a class='lake js-scrollTo' href="#competences">Compétence</a></li>
 					<hr>
-					<li><a class='lake' href="#MesCreations">Creations</a></li>
+					<li><a class='lake js-scrollTo' href="#MesCreations">Creations</a></li>
 					<hr>
-					<li><a class='lake' href="#contact">Contact</a></li>
+					<li><a class='lake js-scrollTo' href="#contact">Contact</a></li>
 				</ul>
 				<img src="IMG/MonLogoBlanc.png" width=110>
 			</sidebar>
