@@ -45,7 +45,6 @@
 					<li><a href="#MesCreations">Creations</a></li>
 					<hr>
 					<li><a href="#contact">Contact</a></li>
-					<hr>
 				</ul>
 				<img src="IMG/MonLogoBlanc.png" width=100>
 			</sidebar>
