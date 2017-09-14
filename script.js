@@ -169,6 +169,7 @@ Array.prototype.map.call(creation, function(crea)
 		let close = document.createElement('section');
 
 		close.id = 'popup_creation_close';
+		close.innerHTML = "X";
 
 		new_div.id = 'popup_creation';
 		new_div.innerHTML = this.innerHTML;

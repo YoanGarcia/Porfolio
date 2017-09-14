@@ -299,11 +299,11 @@ header
 #popup_creation
 {
 	position: fixed;
-	left: calc(100vw/2 - 400px);
+	left: calc(100vw/2 - 480px);
 	top: calc(100vh/2 - 300px);
-	width: 800px;
+	width: 960px;
 	height: 600px;
-	background-color: #0f515a;
+	background-color: transparent;
 }
 
 #popup_creation img
@@ -331,7 +331,9 @@ header
 	right: 10px;
 	top: 10px;
 	width: calc(50% - 10px);
+	height: calc(100% - 20px);
 	text-align: center;
+	background-color: #0f515a;
 }
 
 #popup_creation_close
@@ -341,7 +343,6 @@ header
 	right: 10px;
 	height: 20px;
 	width: 20px;
-	background-color: black;
 }
 
 #contact
