@@ -29,15 +29,39 @@ header
 	height: 100vh;
 }
 
+nav
+{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100vw;
+	height: 60px;
+	background-color: black;
+	text-align: left;
+}
+
+nav img
+{
+	margin: 5px 10px 5px 10px;
+	height: 50px;
+}
+
+nav span
+{
+	position: relative;
+	margin-left: 15px;
+	top: -25px;
+}
+
 #sidemenu{
 	display: none;
-	text-align: center;
 	position: fixed;
 	top: 0px;
 	right: 0px;
 	height: 100vh;
 	width: 190px;
 	background: black;
+	text-align: center;
 	color: white;
 	z-index: 1;
 }
@@ -68,7 +92,7 @@ header
 {
 	position: fixed;
 	right: 20px;
-	top: 10px;
+	top: 15px;
 	text-decoration: none;
 }
 
@@ -78,6 +102,12 @@ header
 	right: 20px;
 	top: 10px;
 	text-decoration: none;
+}
+
+h1
+{
+	font-weight: lighter;
+	font-size: 26pt;
 }
 
 #nom_desc
@@ -95,8 +125,7 @@ header
 
 #nom_desc h1
 {
-	font-size: 33pt; 
-	font-weight: lighter;
+	font-size: 33pt; 	
 }
 
 #nom_desc h2
@@ -288,6 +317,7 @@ header
 	padding: 0px !important;
 	font-size: 12pt;
 	text-decoration: none !important;
+	font-family: 'Times New Roman' !important;
 }
 
 .creation p 

@@ -32,6 +32,9 @@
 	</head>
 	<body>
 		<header>
+			<nav>
+				<img src="IMG/MonLogoBlanc.png" > <span>Accueil</span>	
+			</nav>
 
 			<a href="" id="open_sidemenu">Menu</a>
 
