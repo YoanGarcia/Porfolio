@@ -38,6 +38,7 @@ nav
 	height: 60px;
 	background-color: black;
 	text-align: left;
+	z-index: 5;
 }
 
 nav img
@@ -63,7 +64,7 @@ nav span
 	background: black;
 	text-align: center;
 	color: white;
-	z-index: 1;
+	z-index: 10;
 }
 
 #sidemenu ul
@@ -94,6 +95,7 @@ nav span
 	right: 20px;
 	top: 15px;
 	text-decoration: none;
+	z-index: 10;
 }
 
 #close_sidemenu
@@ -160,6 +162,8 @@ h1
 #desc_apropos > p
 {
 	font-family: 'Times New Roman';
+	position: relative;
+	top: -35px;
 }
 
 .buttonblanc
@@ -196,7 +200,7 @@ h1
 #competences
 {
 	text-align: center;
-	padding: 0% 5% 10% 5%;
+	padding: 0% 5% 15% 5%;
 	background: rgb(15, 81, 90);
 	height: 450px;
 }
@@ -293,7 +297,8 @@ h1
 {
 	text-decoration: none;
 	font-size: 12px;
-	margin: 0px 0px 0px 0px;
+	position: relative;
+	top: -25px;
 }
 
 #creation

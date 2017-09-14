@@ -26,6 +26,7 @@
 		<link rel="shortcut icon" type="image/jpg" href="IMG/MonLogoNoir.png" />
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 
 		<script src="script.js" defer>
 		</script>
@@ -33,7 +34,7 @@
 	<body>
 		<header>
 			<nav>
-				<img src="IMG/MonLogoBlanc.png" > <span>Accueil</span>	
+				<img src="IMG/MonLogoBlanc.png"> <span>Accueil</span>	
 			</nav>
 
 			<a href="" id="open_sidemenu">Menu</a>
@@ -49,7 +50,7 @@
 					<hr>
 					<li><a href="#contact">Contact</a></li>
 				</ul>
-				<img src="IMG/MonLogoBlanc.png">
+				<img src="IMG/MonLogoBlanc.png" width=110>
 			</sidebar>
 
 
@@ -125,7 +126,8 @@
 
 		<footer id="contact">
 			<p>
-				<span><?=$infos['email']?></span><span><?=$infos['telephone']?></span>
+				<span class="fa fa-envelope-o" aria-hidden="true" alt="Mon email : <?=$infos['email']?>" title="Mon email">  <?=$infos['email']?></span>
+				<span class="fa fa-mobile" aria-hidden="true" alt="Mon numero de téléphone : <?=$infos['telephone']?>" title="Mon téléphone">  <?=$infos['telephone']?></span>
 			</p>
 			<p>
 				© 2017 All right reserved | Design : Garcia Yoan

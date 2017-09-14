@@ -188,3 +188,14 @@ Array.prototype.map.call(creation, function(crea)
 		}
 	});
 });
+
+window.onscroll = function() {myFunction()};
+let position = document.querySelector('#apropo').offsetTop;
+
+function myFunction() {
+    if (document.body.scrollTop >= position || document.documentElement.scrollTop > position) {
+        document.querySelector('nav').style.display = 'block';
+    } else {
+        document.querySelector('nav').style.display = 'none';
+    }
+}
