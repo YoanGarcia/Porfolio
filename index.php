@@ -46,7 +46,7 @@
 					<hr>
 					<li><a href="#contact">Contact</a></li>
 				</ul>
-				<img src="IMG/MonLogoBlanc.png" width=100>
+				<img src="IMG/MonLogoBlanc.png">
 			</sidebar>
 
 
