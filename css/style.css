@@ -7,8 +7,12 @@
 {
 	margin: 0px;
 	padding: 0px;
-	font-family: 'eaglelake';
 	color: white;
+}
+
+.lake
+{
+	font-family: 'eaglelake';
 }
 
 body
@@ -161,7 +165,6 @@ h1
 
 #desc_apropos > p
 {
-	font-family: 'Times New Roman';
 	position: relative;
 	top: -35px;
 }
@@ -200,7 +203,7 @@ h1
 #competences
 {
 	text-align: center;
-	padding: 0% 5% 15% 5%;
+	padding: 0px 5% 10px 5%;
 	background: rgb(15, 81, 90);
 	height: 450px;
 }
@@ -322,7 +325,6 @@ h1
 	padding: 0px !important;
 	font-size: 12pt;
 	text-decoration: none !important;
-	font-family: 'Times New Roman' !important;
 }
 
 .creation p 

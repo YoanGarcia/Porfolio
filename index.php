@@ -34,21 +34,21 @@
 	<body>
 		<header>
 			<nav>
-				<img src="IMG/MonLogoBlanc.png"> <span>Accueil</span>	
+				<img src="IMG/MonLogoBlanc.png"> <span class='lake'>Accueil</span>	
 			</nav>
 
-			<a href="" id="open_sidemenu">Menu</a>
+			<a href="" class='lake' id="open_sidemenu">Menu</a>
 
 			<sidebar id="sidemenu">
-				<a href="" id="close_sidemenu">X</a>
+				<a href="" class='lake' id="close_sidemenu">X</a>
 				<ul>
-					<li><a href="#apropo">A propos</a></li>
+					<li><a class='lake' href="#apropo">A propos</a></li>
 					<hr>
-					<li><a href="#competences">Compétence</a></li>
+					<li><a class='lake' href="#competences">Compétence</a></li>
 					<hr>
-					<li><a href="#MesCreations">Creations</a></li>
+					<li><a class='lake' href="#MesCreations">Creations</a></li>
 					<hr>
-					<li><a href="#contact">Contact</a></li>
+					<li><a class='lake' href="#contact">Contact</a></li>
 				</ul>
 				<img src="IMG/MonLogoBlanc.png" width=110>
 			</sidebar>
@@ -56,15 +56,15 @@
 
 			<section id="nom_desc">
 				<hr>
-				<h1>Yoan Garcia</h1>
+				<h1 class='lake'>Yoan Garcia</h1>
 				<hr>
-				<h2>Infographiste multimédia</h2>
+				<h2 class='lake'>Infographiste multimédia</h2>
 			</section>
-			<a id="bouton_commencer" href="#apropo">Commencer</a>
+			<a id="bouton_commencer" href="#apropo" class='lake'>Commencer</a>
 		</header>
 
 		<section id="apropo">
-			<h1>A propos de moi</h1>
+			<h1 class='lake'>A propos de moi</h1>
 			<div id="img_cv">
 				<img src="IMG/<?=$infos['photoCV']?>" width="200" heigth="200">
 			</div>
@@ -75,7 +75,7 @@
 		</section>
 
 		<section id="competences">
-			<h1>Mes compétences</h1>
+			<h1 class='lake'>Mes compétences</h1>
 
 			<?php foreach ($competences as $competence): ?>
 				<section class="competence">
@@ -95,7 +95,7 @@
 
 		<section id="MesCreations">
 
-			<h1>Mes créations</h1>
+			<h1 class='lake'>Mes créations</h1>
 
 			<section id="select_creations">
 				<img src="IMG/MonLogoNoir.png" width=60 height=60>
