@@ -258,6 +258,7 @@ header
 {
 	text-decoration: none;
 	font-size: 12px;
+	margin: 0px 0px 0px 0px;
 }
 
 #creation
@@ -302,7 +303,23 @@ header
 	top: calc(100vh/2 - 200px);
 	width: 600px;
 	height: 400px;
-	background-color: red;
+	background-color: #0f515a;
+}
+
+#popup_creation img
+{
+	margin: 5px;
+	height: calc(100% - 10px);
+	width: calc(50% - 10px);
+}
+
+#popup_creation .description_creation
+{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 50%;
+	text-align: center;
 }
 
 #popup_creation_close

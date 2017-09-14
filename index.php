@@ -109,7 +109,7 @@
 				<?php foreach ($creations as $creation): ?>
 					<article class="<?=$creation['type']?> creation">
 						<img src="IMG/<?=$creation['img']?>" width=50 height=50 >
-						<section id="description_creation">
+						<section class="description_creation">
 							<h1><?=$creation['titre']?></h1>
 							<p><?=$creation['description']?></p>
 							<p><?=$creation['temp']?></p>
