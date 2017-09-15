@@ -83,19 +83,23 @@
 			<section class="t960px">
 				<h1 class='lake'>Mes compétences</h1>
 
-				<?php foreach ($competences as $competence): ?>
-					<section class="competence">
-						<h3 class="buchet"><?=$competence['titre']?></h3>
-						<section id="section_points">
-							<?php for($i = 0; $i < $competence['points']; $i++): ?>
-								<div class="check points"></div>
-							<?php endfor ?>
-							<?php for($i = 0; $i < (5 - $competence['points']); $i++): ?>
-								<div class="points"><div class="uncheck"><div class="uncheck1"></div></div></div>
-							<?php endfor ?>
+				<section id="competences_2">
+					<?php foreach ($competences as $competence): ?>
+						<section class="competence">
+							<h3 class="buchet"><?=$competence['titre']?></h3>
+							<section id="section_points">
+								<?php for($i = 0; $i < $competence['points']; $i++): ?>
+									<div class="check points"></div>
+								<?php endfor ?>
+								<?php for($i = 0; $i < (5 - $competence['points']); $i++): ?>
+									<div class="points"><div class="uncheck"><div class="uncheck1"></div></div></div>
+								<?php endfor ?>
+							</section>
 						</section>
-					</section>
-				<?php endforeach ?>	
+					<?php endforeach ?>		
+				</section>
+				
+
 			</section>
 		</section>
 

@@ -248,6 +248,12 @@ h1
 	height: 100vh; 
 }
 
+#competences_2
+{
+	position: relative;
+	bottom: -150px;
+}
+
 #competences h1
 {
 	text-decoration: underline;
