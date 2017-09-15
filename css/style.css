@@ -164,7 +164,7 @@ h1
 #apropo
 {
 	background: rgb(45, 127, 139);
-	height: 450px;
+	height: 100vh; 
 	text-align: center;
 }
 
@@ -218,7 +218,7 @@ h1
 	text-align: center;
 	padding: 0px 5% 10px 5%;
 	background: rgb(15, 81, 90);
-	height: 450px;
+	height: 100vh; 
 }
 
 #competences h1
@@ -292,6 +292,7 @@ h1
 	background-color: rgb(45, 127, 139);
 	padding: 25px;
 	text-align: center;
+	min-height: 100vh; 
 }
 
 #MesCreations h1
