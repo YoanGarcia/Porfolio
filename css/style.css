@@ -351,6 +351,11 @@ h1
 	top: -25px;
 }
 
+#select_creations img
+{
+	margin: 0px 10px;
+}
+
 #creation
 {
 	width: 960px;
