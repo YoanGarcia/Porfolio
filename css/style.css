@@ -3,6 +3,11 @@
     src: url('font/Eagle_Lake/EagleLake-Regular.ttf');
 }
 
+@font-face {
+    font-family: 'trebuchet';
+    src: url('font/trebuc.ttf');
+}
+
 *
 {
 	margin: 0px;
