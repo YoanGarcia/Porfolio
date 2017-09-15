@@ -3,6 +3,8 @@ $(document).ready(function() {
 		var page = $(this).attr('href'); // Page cible
 		var speed = 750; // Durée de l'animation (en ms)
 		$('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go
+		$('#sidemenu').remove();
+		$('#open_sidemenu').show();
 		return false;
 	});
 });
