@@ -228,7 +228,7 @@ h1
 {
 	width: 200px;
 	height:200px;
-	margin: calc(100vh/2 - 100px - 66.72px) 40px 40px 40px;
+	margin: calc(100%/2 - 300px) 40px 40px 40px;
 	display: inline-block;
 }
 
