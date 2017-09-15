@@ -81,7 +81,14 @@
 				    }
 				    else
 				    {
-				    	$errors[] = 'erreur d\'upload de limage';
+				    	if($_FILES['picture']['error'] != 4)
+				    	{
+				    		$errors[] =  'erreur d\'upload de limage . code : '.$_FILES['picture']['error'];
+				    	}
+				    	else
+				    	{
+				    		$finalFileName = 'photoCV.png';
+				    	}
 				    	unset($_FILES['picture']);
 				    } 
 				}
@@ -436,6 +443,16 @@
 				</form>
 			</section>
 
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+
 			<section id="competences">
 				<section id="edit_competences">
 					<form method="post" action="index.php">
@@ -526,6 +543,21 @@
 						<input type="submit" value="Ajouter">
 					</form>
 				</section>
+
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+
 
 				<section id="edit_creation">
 					<?php foreach ($creations as $creation): ?>

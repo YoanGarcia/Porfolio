@@ -75,7 +75,7 @@
 				<div id="desc_apropos">
 					<p  alt="A propos de moi" title="A propos de moi"><?=$infos['apropos']?></p><br>
 				</div>
-				<a id="curi" class="buttonblanc" href="<?=$infos['lien_cv']?>" alt="Lien vers mon Curriculum Vitae" title="Lien vers mon Curriculum Vitae">Curriculum Vitae</a>
+				<a id="curi" target="_blank" class="buttonblanc" href="<?=$infos['lien_cv']?>" alt="Lien vers mon Curriculum Vitae" title="Lien vers mon Curriculum Vitae">Curriculum Vitae</a>
 			</section>
 		</section>
 
