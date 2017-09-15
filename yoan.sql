@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 14 Septembre 2017 à 12:18
+-- Généré le :  Ven 15 Septembre 2017 à 15:43
 -- Version du serveur :  10.1.19-MariaDB
 -- Version de PHP :  5.6.28
 
@@ -28,7 +28,6 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `competences` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
   `titre` varchar(255) NOT NULL,
   `points` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -37,15 +36,9 @@ CREATE TABLE `competences` (
 -- Contenu de la table `competences`
 --
 
-INSERT INTO `competences` (`id`, `name`, `titre`, `points`) VALUES
-(1, 'html', 'HTML 5', 4),
-(2, 'css', 'CSS 3', 4),
-(3, 'php', 'PHP', 3),
-(4, 'js', 'Javascript', 2),
-(5, 'office', 'Suite Office', 4),
-(6, 'photo', 'Adobe Photoshop', 3),
-(7, 'illustrator', 'Adobe Illustrator', 4),
-(8, 'anglais', 'Anglais', 4);
+INSERT INTO `competences` (`id`, `titre`, `points`) VALUES
+(22, 'HTML 5', 4),
+(23, 'CSS 3', 4);
 
 -- --------------------------------------------------------
 
@@ -105,7 +98,7 @@ CREATE TABLE `infos` (
 --
 
 INSERT INTO `infos` (`id`, `email`, `telephone`, `lien_cv`, `apropos`, `photoCV`) VALUES
-(1, 'yoan.gcia@gmail.com', '06 40 13 59 33', 'http://www.google.fr', 'Après avoire obtenu mon BAC STL (Sciences Techniques de Laboratoire), j''ai voulu tenter l''écologie et la prévention. Au bout d’une année dans l''IUT HSE (Hygiène Santé Environnement) de Tulle, je me suis réorienté vers une passion née dès mon plus jeune âge : le jeu vidéo.J''intègre donc ESTEI à Bordeaux où je suis actuellement un bachelor (BAC+3) en infographie/multimédia dans le but de travailler dans le jeu vidéo plutôt du côté de l''image (graphisme, modélisation).', 'photoCV.png');
+(1, 'yoan.gcia@gmail.com', '06 40 13 59 33', 'http://www.google.fr', 'Après avoir obtenu mon BAC STL (Sciences Techniques de Laboratoire), j''ai voulu tenter l''écologie et la prévention. Au bout d’une année dans l''IUT HSE (Hygiène Santé Environnement) de Tulle, je me suis réorienté vers une passion née dès mon plus jeune âge : le jeu vidéo.J''intègre donc ESTEI à Bordeaux où je suis actuellement un bachelor (BAC+3) en infographie/multimédia dans le but de travailler dans le jeu vidéo plutôt du côté de l''image (graphisme, modélisation).', 'photoCV.png');
 
 -- --------------------------------------------------------
 
@@ -135,8 +128,7 @@ INSERT INTO `user` (`id`, `pseudo`, `password`, `role`) VALUES
 -- Index pour la table `competences`
 --
 ALTER TABLE `competences`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `creations`
@@ -164,12 +156,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `competences`
 --
 ALTER TABLE `competences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT pour la table `creations`
 --
 ALTER TABLE `creations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT pour la table `infos`
 --
