@@ -8,6 +8,7 @@
 	margin: 0px;
 	padding: 0px;
 	color: white;
+	box-sizing: border-box;
 }
 
 .lake
@@ -156,9 +157,25 @@ h1
 {
 	position: absolute;
 	width: 100px;
-	bottom: 0px;
+	bottom: 45px;
 	left: calc(100%/2 - 50px);
 	text-decoration: none;
+}
+
+#bouton_commencer:after
+{
+	background-image: url(images/arrow.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: -2em;
+    content: '';
+    display: block;
+    height: 1.5em;
+    left: 50%;
+    margin: 0 0 0 -0.75em;
+    position: absolute;
+    width: 1.5em;
 }
 
 #apropo
@@ -292,7 +309,7 @@ h1
 	background-color: rgb(45, 127, 139);
 	padding: 0px 25px 25px 25px;
 	text-align: center;
-	min-height: 100vh; 
+	min-height: 100vh;
 }
 
 #MesCreations h1
@@ -345,6 +362,8 @@ h1
 {
 	display: none;
 }
+
+
 
 .creation img
 {
