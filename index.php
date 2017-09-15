@@ -98,8 +98,6 @@
 						</section>
 					<?php endforeach ?>		
 				</section>
-				
-
 			</section>
 		</section>
 
