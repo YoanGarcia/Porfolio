@@ -349,8 +349,8 @@ h1
 .creation img
 {
 	margin: 10px 0px 0px 0px;
-	width: 150px;
-	height: 200px;
+	width: 60%;
+	height: auto;
 }
 
 #popup_creation
