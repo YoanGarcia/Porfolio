@@ -200,16 +200,11 @@
 
 			if($post['formulaire'] === 'del_competences')
 			{
-				if(!isset($post['titre']) || empty($post['titre']))
-				{
-					$errors[] = 'le Nom ne doit pas étre vide';
-				}
-
 				if(count($errors) == 0)
 				{
-					$req = $bdd->prepare('DELETE FROM competences WHERE titre = ?');
+					$req = $bdd->prepare('DELETE FROM competences WHERE id = ?');
 					if($req->execute([
-							$post['titre'],
+							$post['id'],
 						]))
 					{
 						echo '<script>alert(\'la competence '.$post['titre'].' à bien était Supprimer\')</script>';
@@ -364,6 +359,20 @@
 					}
 				}
 			}
+
+			if($post['formulaire'] === 'del_creation')
+			{
+				if(count($errors) == 0)
+				{
+					$req = $bdd->prepare('DELETE FROM creations WHERE id = ?');
+					if($req->execute([
+							$post['id'],
+						]))
+					{
+						echo '<script>alert(\'la creation à bien était Supprimer\')</script>';
+					}
+				}		
+			}
 		}
 	}
 
@@ -489,8 +498,11 @@
 						<fieldset>
 							<input type="hidden" name="formulaire" value="del_competences">
 							
-							<label>Nom de la competence</label>
-							<input type="text" name="titre">
+							<SELECT name="id" size="1">
+								<?php foreach ($competences as $competence): ?>
+									<option value="<?=$competence['id']?>"><?=$competence['titre']?></option>									
+								<?php endforeach ?>	
+							</SELECT>
 							<br>
 
 							<input type="submit" value="Supprimer">
@@ -564,6 +576,35 @@
 				<br>
 				<br>
 
+				<section id="del_creation">
+					<form method="post" action="index.php" enctype="multipart/form-data">
+						<fieldset>
+							<input type="hidden" name="formulaire" value="del_creation">
+							
+							<SELECT name="id" size="1">
+								<?php foreach ($creations as $creation): ?>
+									<option value="<?=$creation['id']?>"><?=$creation['titre']?></option>									
+								<?php endforeach ?>	
+							</SELECT>
+							<br>
+
+							<input type="submit" value="Supprimer">
+						</fieldset>
+					</form>
+				</section>
+
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
 
 				<section id="edit_creation">
 					<?php foreach ($creations as $creation): ?>
@@ -604,25 +645,6 @@
 						</form>
 					<?php endforeach ?>
 				</section>
-
-				<br> 
-				<br> 
-				<br> 
-				<br> 
-				<br> 
-				<br> 
-
-				<section id="del_creation">
-					<form method="post" action="index.php">
-						<input type="hidden" name="formulaire" value="del_competences">
-						
-						<label>selectionner la creation</label>
-						
-						<br>
-
-						<input type="submit" value="Supprimer">
-					</form>
-				</section> 
 
 			</section>		
 		<?php endif ?>
