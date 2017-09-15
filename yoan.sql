@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 15 Septembre 2017 à 15:43
+-- Généré le :  Ven 15 Septembre 2017 à 17:14
 -- Version du serveur :  10.1.19-MariaDB
 -- Version de PHP :  5.6.28
 
@@ -60,7 +60,6 @@ CREATE TABLE `creations` (
 --
 
 INSERT INTO `creations` (`id`, `type`, `titre`, `description`, `img`, `temp`) VALUES
-(1, 'photo', 'aze photo', 'qwertya', 'lion.jpg', '22h15min'),
 (2, 'photo', 'aze photo', 'qwertya', 'lion.png', '22h15min'),
 (3, 'photo', 'aze photo', 'qwertya', 'lion.png', '22h15min'),
 (4, 'photo', 'aze photo', 'qwertya', 'lion.png', '22h15min'),
@@ -75,8 +74,12 @@ INSERT INTO `creations` (`id`, `type`, `titre`, `description`, `img`, `temp`) VA
 (13, 'c3ds', 'aze c3ds', 'qwertya', 'lion.png', '22h15min'),
 (14, 'c3ds', 'aze c3ds', 'qwertya', 'lion.png', '22h15min'),
 (15, 'c3ds', 'aze c3ds', 'qwertya', 'lion.png', '22h15min'),
-(16, 'c3ds', 'sdqsdqsdqsd', 'qsdqsdqsdqsd', '.png', '03h45m'),
-(36, 'c3ds', 'ajout des azeazeazez', 'azeqdazesdfdsgsersdregfxdtxdegm^*lpm^gfhdftdgbdrgdxbg', '1505139326.jpg', '02h35minutes');
+(36, 'c3ds', 'ajout des azeazeazez', 'azeqdazesdfdsgsersdregfxdtxdegm^*lpm^gfhdftdgbdrgdxbg', '1505139326.jpg', '02h35minutes'),
+(38, 'illu', 'azeaze', 'azeazeazeazeqsdqsd', '1505483582.jpg', 'azeazeaze'),
+(39, 'illu', 'azeazeaze', 'azeazeaze', '1505483706.png', 'azeazeaze'),
+(40, 'c3ds', 'logo test', 'zerzerzarze', '1505484252.png', 'zerzreze'),
+(41, 'c3ds', 'logo test', 'zerzerzarze', '1505487617.png', 'zerzreze'),
+(42, 'c3ds', 'logo test', 'zerzerzarze', '1505487640.png', 'zerzreze');
 
 -- --------------------------------------------------------
 
@@ -88,17 +91,17 @@ CREATE TABLE `infos` (
   `id` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
   `telephone` varchar(255) NOT NULL,
-  `lien_cv` varchar(255) NOT NULL,
   `apropos` text NOT NULL,
-  `photoCV` varchar(255) NOT NULL
+  `photoCV` varchar(255) NOT NULL,
+  `CV` varchar(255) NOT NULL DEFAULT 'CV.pdf'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `infos`
 --
 
-INSERT INTO `infos` (`id`, `email`, `telephone`, `lien_cv`, `apropos`, `photoCV`) VALUES
-(1, 'yoan.gcia@gmail.com', '06 40 13 59 33', 'http://www.google.fr', 'Après avoir obtenu mon BAC STL (Sciences Techniques de Laboratoire), j''ai voulu tenter l''écologie et la prévention. Au bout d’une année dans l''IUT HSE (Hygiène Santé Environnement) de Tulle, je me suis réorienté vers une passion née dès mon plus jeune âge : le jeu vidéo.J''intègre donc ESTEI à Bordeaux où je suis actuellement un bachelor (BAC+3) en infographie/multimédia dans le but de travailler dans le jeu vidéo plutôt du côté de l''image (graphisme, modélisation).', 'photoCV.png');
+INSERT INTO `infos` (`id`, `email`, `telephone`, `apropos`, `photoCV`, `CV`) VALUES
+(1, 'yoan.gcia@gmail.com', '06 40 13 59 33', 'Après avoir obtenu mon BAC STL (Sciences Techniques de Laboratoire), j''ai voulu tenter l''écologie et la prévention. Au bout d’une année dans l''IUT HSE (Hygiène Santé Environnement) de Tulle, je me suis réorienté vers une passion née dès mon plus jeune âge : le jeu vidéo.J''intègre donc ESTEI à Bordeaux où je suis actuellement un bachelor (BAC+3) en infographie/multimédia dans le but de travailler dans le jeu vidéo plutôt du côté de l''image (graphisme, modélisation).', 'photoCV.png', 'CV.pdf');
 
 -- --------------------------------------------------------
 
@@ -161,7 +164,7 @@ ALTER TABLE `competences`
 -- AUTO_INCREMENT pour la table `creations`
 --
 ALTER TABLE `creations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT pour la table `infos`
 --
