@@ -417,29 +417,31 @@
 
 			<section id="formulaire_infos">
 				<form method="post" action="index.php" enctype="multipart/form-data">
-					<input type="hidden" name="formulaire" value="infos">
+					<fieldset>
+						<input type="hidden" name="formulaire" value="infos">
 
-					<label>Telephone</label>
-					<input type="text" name="telephone" value="<?=$infos['telephone']?>">
-					<br>
+						<label>Telephone</label>
+						<input type="text" name="telephone" value="<?=$infos['telephone']?>">
+						<br>
 
-					<label>Email</label>
-					<input type="email" name="email" value="<?=$infos['email']?>">
-					<br>
+						<label>Email</label>
+						<input type="email" name="email" value="<?=$infos['email']?>">
+						<br>
 
-					<label>lien CV</label>
-					<input type="url" name="lien_cv" value="<?=$infos['lien_cv']?>">
-					<br>
-					
-					<label>à propos</label>
-					<textarea name="apropos"><?=$infos['apropos']?></textarea>
-					<br>
+						<label>lien CV</label>
+						<input type="url" name="lien_cv" value="<?=$infos['lien_cv']?>">
+						<br>
+						
+						<label>à propos</label>
+						<textarea name="apropos"><?=$infos['apropos']?></textarea>
+						<br>
 
-					<label>PhotoCV</label>
-					<input type="file" name="picture">
-					<br>
+						<label>PhotoCV</label>
+						<input type="file" name="picture">
+						<br>
 
-					<input type="submit" value="Modifier">
+						<input type="submit" value="Modifier">
+					</fieldset>
 				</form>
 			</section>
 
@@ -456,6 +458,7 @@
 			<section id="competences">
 				<section id="edit_competences">
 					<form method="post" action="index.php">
+					<fieldset>
 						<input type="hidden" name="formulaire" value="edit_competences">
 						<?php foreach ($competences as $competence): ?>
 							<label><?=$competence['titre']?></label>
@@ -463,34 +466,39 @@
 							<br>	
 						<?php endforeach ?>
 						<input type="submit" value="Modifier">
+					</fieldset>
 					</form>
 				</section>
 
 				<section id="add_competences">
 					<form method="post" action="index.php">
-						<input type="hidden" name="formulaire" value="add_competences">
-						
-						<label>Nom de la competence</label>
-						<input type="text" name="titre">
-						<br>
+						<fieldset>
+							<input type="hidden" name="formulaire" value="add_competences">
+							
+							<label>Nom de la competence</label>
+							<input type="text" name="titre">
+							<br>
 
-						<label>Points de competence</label>
-						<input type="number" name="points">
-						<br>
+							<label>Points de competence</label>
+							<input type="number" name="points">
+							<br>
 
-						<input type="submit" value="Ajouter">
+							<input type="submit" value="Ajouter">
+						</fieldset>
 					</form>
 				</section>
 
 				<section id="del_competences">
 					<form method="post" action="index.php" enctype="multipart/form-data">
-						<input type="hidden" name="formulaire" value="del_competences">
-						
-						<label>Nom de la competence</label>
-						<input type="text" name="titre">
-						<br>
+						<fieldset>
+							<input type="hidden" name="formulaire" value="del_competences">
+							
+							<label>Nom de la competence</label>
+							<input type="text" name="titre">
+							<br>
 
-						<input type="submit" value="Supprimer">
+							<input type="submit" value="Supprimer">
+						</fieldset>
 					</form>
 				</section>
 
@@ -514,33 +522,35 @@
 
 				<section id="add_creation">
 					<form method="post" action="index.php" enctype="multipart/form-data">
-						<input type="hidden" name="formulaire" value="add_creation">
-						
-						<label>Titre</label>
-						<input type="text" name="titre">
-						<br>
+						<fieldset>
+							<input type="hidden" name="formulaire" value="add_creation">
+							
+							<label>Titre</label>
+							<input type="text" name="titre">
+							<br>
 
-						<label>Temp de travail</label>
-						<input type="text" name="temp">
-						<br>
+							<label>Temp de travail</label>
+							<input type="text" name="temp">
+							<br>
 
-						<br>
-						<label>Images</label>
-						<input type="file" name="picture">
-						<br>
+							<br>
+							<label>Images</label>
+							<input type="file" name="picture">
+							<br>
 
-						<label>Description</label>
-						<textarea name="description"></textarea>
-						<br>
+							<label>Description</label>
+							<textarea name="description"></textarea>
+							<br>
 
-						<label>Type :</label>
-						<br>
-						<label>Adobe Photoshop<input type="radio" name="type" value="photo"></label><br>
-						<label>Adobe Illustrator<input type="radio" name="type" value="illu"></label><br>
-						<label>3ds Max<input type="radio" name="type" value="c3ds"></label><br>
-						<br>
+							<label>Type :</label>
+							<br>
+							<label>Adobe Photoshop<input type="radio" name="type" value="photo"></label><br>
+							<label>Adobe Illustrator<input type="radio" name="type" value="illu"></label><br>
+							<label>3ds Max<input type="radio" name="type" value="c3ds"></label><br>
+							<br>
 
-						<input type="submit" value="Ajouter">
+							<input type="submit" value="Ajouter">
+						</fieldset>
 					</form>
 				</section>
 
@@ -562,37 +572,39 @@
 				<section id="edit_creation">
 					<?php foreach ($creations as $creation): ?>
 						<form method="post" action="index.php" enctype="multipart/form-data">
-							<input type="hidden" name="formulaire" value="edit_creation">
-							<input type="hidden" name="creation_id" value="<?=$creation['id']?>">
-							<input type="hidden" name="creation_img" value="<?=$creation['img']?>">
-							
-							<label>Titre</label>
-							<input type="text" name="titre" value="<?=$creation['titre']?>">
-							<br>
+							<fieldset>
+								<input type="hidden" name="formulaire" value="edit_creation">
+								<input type="hidden" name="creation_id" value="<?=$creation['id']?>">
+								<input type="hidden" name="creation_img" value="<?=$creation['img']?>">
+								
+								<label>Titre</label>
+								<input type="text" name="titre" value="<?=$creation['titre']?>">
+								<br>
 
-							<label>Temp de travail</label>
-							<input type="text" name="temp" value="<?=$creation['temp']?>">
-							<br>
+								<label>Temp de travail</label>
+								<input type="text" name="temp" value="<?=$creation['temp']?>">
+								<br>
 
-							<img src="../IMG/<?=$creation['img']?>" width="50" height="50">
-							<br>
-							<label>Images</label>
-							<input type="file" name="picture">
-							<br>
+								<img src="../IMG/<?=$creation['img']?>" width="50" height="50">
+								<br>
+								<label>Images</label>
+								<input type="file" name="picture">
+								<br>
 
-							<label>Description</label>
-							<textarea name="description"><?=$creation['description']?></textarea>
-							<br>
+								<label>Description</label>
+								<textarea name="description"><?=$creation['description']?></textarea>
+								<br>
 
-							<label>Type :</label>
-							<br>
-							<label>Adobe Photoshop<input type="radio" name="type" value="photo" <?= ($creation['type'] === 'photo') ? 'checked' : '' ?> ></label><br>
-							<label>Adobe Illustrator<input type="radio" name="type" value="illu" <?= ($creation['type'] === 'illu') ? 'checked' : '' ?> ></label><br>
-							<label>3ds Max<input type="radio" name="type" value="c3ds" <?= ($creation['type'] === 'c3ds') ? 'checked' : '' ?> ></label><br>
-							<br>
+								<label>Type :</label>
+								<br>
+								<label>Adobe Photoshop<input type="radio" name="type" value="photo" <?= ($creation['type'] === 'photo') ? 'checked' : '' ?> ></label><br>
+								<label>Adobe Illustrator<input type="radio" name="type" value="illu" <?= ($creation['type'] === 'illu') ? 'checked' : '' ?> ></label><br>
+								<label>3ds Max<input type="radio" name="type" value="c3ds" <?= ($creation['type'] === 'c3ds') ? 'checked' : '' ?> ></label><br>
+								<br>
 
-							
-							<input type="submit" value="Modifier">
+								
+								<input type="submit" value="Modifier">
+							</fieldset>
 						</form>
 					<?php endforeach ?>
 				</section>
