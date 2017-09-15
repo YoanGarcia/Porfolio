@@ -16,6 +16,11 @@
 	font-family: 'eaglelake';
 }
 
+.buchet
+{
+	font-family: 'trebuchet';
+}
+
 .t960px
 {
 	width: 960px;
@@ -197,7 +202,6 @@ h1
 {
 	position: relative;
 	top: -35px;
-	font-family: 'trebuchet';
 }
 
 .buttonblanc

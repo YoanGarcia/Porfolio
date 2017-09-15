@@ -85,7 +85,7 @@
 
 				<?php foreach ($competences as $competence): ?>
 					<section class="competence">
-						<h3><?=$competence['titre']?></h3>
+						<h3 class="buchet"><?=$competence['titre']?></h3>
 						<section id="section_points">
 							<?php for($i = 0; $i < $competence['points']; $i++): ?>
 								<div class="check points"></div>
@@ -105,25 +105,25 @@
 
 				<section id="select_creations">
 					<img src="IMG/MonLogoNoir.png" width=60 height=60>
-					<a id="all_creations" class="buttonblanc" href="">Tous les travaux</a>
+					<a id="all_creations" class="buttonblanc lake" href="">Tous les travaux</a>
 					<img src="IMG/Ai.png" width=60 height=60>
-					<a id="illu_creations" class="buttonblanc" href="">Fait avec Illustrator</a>
+					<a id="illu_creations" class="buttonblanc lake" href="">Fait avec Illustrator</a>
 					<img src="IMG/Ps.png" width=60 height=60>
-					<a id="photo_creations" class="buttonblanc" href="">Fait avec Photoshop</a>
+					<a id="photo_creations" class="buttonblanc lake" href="">Fait avec Photoshop</a>
 					<img src="IMG/3dsMax.jpg" width=60 height=60>
-					<a id="creations_3ds" class="buttonblanc" href="">Fait avec 3ds Max</a>
+					<a id="creations_3ds" class="buttonblanc lake" href="">Fait avec 3ds Max</a>
 				</section>
 
-				<section id="creation">
+				<section class="buchet" id="creation">
 					<?php foreach ($creations as $creation): ?>
 						<article class="<?=$creation['type']?> creation">
 							<div class="img_container">
 								<img src="IMG/<?=$creation['img']?>" width=50 height=50 >
 							</div>
 							<section class="description_creation">
-								<h1><?=$creation['titre']?></h1>
-								<p><?=$creation['description']?></p>
-								<p><?=$creation['temp']?></p>
+								<h1 class="buchet"><?=$creation['titre']?></h1>
+								<p class="buchet"><?=$creation['description']?></p>
+								<p class="buchet"><?=$creation['temp']?></p>
 							</section>
 						</article>
 					<?php endforeach ?>	
@@ -131,7 +131,7 @@
 			</section>
 		</section>
 
-		<footer id="contact">
+		<footer class="buchet" id="contact">
 			<section class="t960px">
 				<p>
 					<span class="fa fa-envelope-o" aria-hidden="true" alt="Mon email : <?=$infos['email']?>" title="Mon email">  <?=$infos['email']?></span>
