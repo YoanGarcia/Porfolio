@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 15 Septembre 2017 à 17:14
+-- Généré le :  Ven 15 Septembre 2017 à 17:42
 -- Version du serveur :  10.1.19-MariaDB
 -- Version de PHP :  5.6.28
 
@@ -38,7 +38,13 @@ CREATE TABLE `competences` (
 
 INSERT INTO `competences` (`id`, `titre`, `points`) VALUES
 (22, 'HTML 5', 4),
-(23, 'CSS 3', 4);
+(23, 'CSS 3', 4),
+(25, 'PHP', 3),
+(26, 'Javascript', 2),
+(27, 'Suite office', 5),
+(28, 'Adobe Photoshop', 3),
+(29, 'Adobe Illustrator', 4),
+(30, 'Anglais', 4);
 
 -- --------------------------------------------------------
 
@@ -159,7 +165,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `competences`
 --
 ALTER TABLE `competences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT pour la table `creations`
 --
