@@ -51,11 +51,6 @@
 					$errors[] = 'l\'email ne doit pas étre vide';
 				}
 
-				if(!isset($post['lien_cv']) || empty($post['lien_cv']))
-				{
-					$errors[] = 'lien_cv ne doit pas étre vide';
-				}
-
 				if(!isset($post['apropos']) || empty($post['apropos']))
 				{
 					$errors[] = 'apropos ne doit pas étre vide';
@@ -95,17 +90,48 @@
 
 				if(count($errors) == 0)
 				{
-					$req = $bdd->prepare('UPDATE infos SET telephone = ?, email = ?, lien_cv = ?, apropos = ?, photoCV = ? WHERE id = 1');
+					$req = $bdd->prepare('UPDATE infos SET telephone = ?, email = ?, apropos = ?, photoCV = ? WHERE id = 1');
 					if($req->execute([
 							$post['telephone'],
 							$post['email'],
-							$post['lien_cv'],
 							$post['apropos'],
 							$finalFileName,
 						]))
 					{
 						echo '<script>alert(\'les informations ont bien était mises à jour\')</script>';
 					}
+				}
+			}
+
+			if($post['formulaire'] === 'cv')
+			{
+				if(!empty($_FILES) && isset($_FILES['cv']))
+				{
+				    if ($_FILES['cv']['error'] == UPLOAD_ERR_OK) 
+				    {
+				        $nomFichier = $_FILES['cv']['name'];
+				        $tmpFichier = $_FILES['cv']['tmp_name']; 
+				                       
+			            $newFileName = explode('.', $nomFichier);
+			            $fileExtension = end($newFileName);
+
+			            $finalFileName = 'CV.'.$fileExtension; 
+
+			            if(move_uploaded_file($tmpFichier, '../IMG/'.$finalFileName)) 
+			            {
+			                $req = $bdd->prepare('UPDATE infos SET CV = ? WHERE id = 1');
+							if($req->execute([$finalFileName]))
+							{
+								echo '<script>alert(\'les informations ont bien était mises à jour\')</script>';
+							} 
+			                unset($_FILES['cv']);  
+			            }
+				    }
+				    else
+				    {
+				    	$errors[] =  'erreur d\'upload de limage . code : '.$_FILES['picture']['error'];			    	
+				    	unset($_FILES['picture']);
+				    } 
 				}
 			}
 
@@ -432,10 +458,6 @@
 						<label>Email</label>
 						<input type="email" name="email" value="<?=$infos['email']?>">
 						<br>
-
-						<label>lien CV</label>
-						<input type="url" name="lien_cv" value="<?=$infos['lien_cv']?>">
-						<br>
 						
 						<label>à propos</label>
 						<textarea name="apropos"><?=$infos['apropos']?></textarea>
@@ -443,6 +465,19 @@
 
 						<label>PhotoCV</label>
 						<input type="file" name="picture">
+						<br>
+
+						<input type="submit" value="Modifier">
+					</fieldset>
+				</form>
+
+				<form method="post" action="index.php" enctype="multipart/form-data">
+					<fieldset>
+						<input type="hidden" name="formulaire" value="cv">
+
+						<label>CV</label>
+						<br>
+						<input type="file" name="cv">
 						<br>
 
 						<input type="submit" value="Modifier">
