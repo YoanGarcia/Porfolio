@@ -162,7 +162,6 @@
 								$post[$competence['id']]
 							]))
 						{
-							var_dump($req->errorinfo());
 							echo '<script>alert(\'erreur impossible de metre a jour la competence '.$competence['titre'].'\')</script>';
 						}
 					}
@@ -194,7 +193,6 @@
 							$post['points']
 						]))
 					{
-						var_dump($req->errorinfo());
 						echo '<script>alert(\'la competence '.$post['titre'].' à bien était ajouter\')</script>';
 					}
 				}
@@ -294,7 +292,6 @@
 							$post['temp'],
 						]))
 					{
-						var_dump($req->errorinfo());
 						echo '<script>alert(\'erreur impossible de metre a jour la competence '.$competence['titre'].'\')</script>';
 					}
 				}
@@ -363,7 +360,6 @@
 							$post['temp'],
 						]))
 					{
-						var_dump($req->errorinfo());
 						echo '<script>alert(\'erreur impossible de metre a jour la competence '.$competence['titre'].'\')</script>';
 					}
 				}
@@ -609,33 +605,24 @@
 					<?php endforeach ?>
 				</section>
 
-				<!-- <section id="add_competences">
-					<form method="post" action="index.php">
-						<input type="hidden" name="formulaire" value="add_competences">
-						
-						<label>Nom de la competence</label>
-						<input type="text" name="titre">
-						<br>
+				<br> 
+				<br> 
+				<br> 
+				<br> 
+				<br> 
+				<br> 
 
-						<label>Points de competence</label>
-						<input type="number" name="points">
-						<br>
-
-						<input type="submit" value="Ajouter">
-					</form>
-				</section>
-
-				<section id="del_competences">
+				<section id="del_creation">
 					<form method="post" action="index.php">
 						<input type="hidden" name="formulaire" value="del_competences">
 						
-						<label>Nom de la competence</label>
-						<input type="text" name="titre">
+						<label>selectionner la creation</label>
+						
 						<br>
 
 						<input type="submit" value="Supprimer">
 					</form>
-				</section> -->
+				</section> 
 
 			</section>		
 		<?php endif ?>
