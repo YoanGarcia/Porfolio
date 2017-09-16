@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
 --
--- Client :  127.0.0.1
--- Généré le :  Ven 15 Septembre 2017 à 17:42
--- Version du serveur :  10.1.19-MariaDB
--- Version de PHP :  5.6.28
+-- Hôte : 127.0.0.1
+-- Généré le :  sam. 16 sep. 2017 à 19:52
+-- Version du serveur :  10.1.25-MariaDB
+-- Version de PHP :  7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -33,7 +35,7 @@ CREATE TABLE `competences` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `competences`
+-- Déchargement des données de la table `competences`
 --
 
 INSERT INTO `competences` (`id`, `titre`, `points`) VALUES
@@ -62,30 +64,17 @@ CREATE TABLE `creations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `creations`
+-- Déchargement des données de la table `creations`
 --
 
 INSERT INTO `creations` (`id`, `type`, `titre`, `description`, `img`, `temp`) VALUES
-(2, 'photo', 'aze photo', 'qwertya', 'lion.png', '22h15min'),
-(3, 'photo', 'aze photo', 'qwertya', 'lion.png', '22h15min'),
-(4, 'photo', 'aze photo', 'qwertya', 'lion.png', '22h15min'),
-(5, 'photo', 'aze photo', 'qwertya', 'lion.png', '22h15min'),
-(6, 'illu', 'aze illu', 'qwertya', 'lion.png', '22h15min'),
-(7, 'illu', 'aze illu', 'qwertya', 'lion.png', '22h15min'),
-(8, 'illu', 'aze illu', 'qwertya', 'lion.png', '22h15min'),
-(9, 'illu', 'aze illu', 'qwertya', 'lion.png', '22h15min'),
-(10, 'illu', 'aze illu', 'qwertya', 'lion.png', '22h15min'),
-(11, 'c3ds', 'aze c3ds', 'qwertya', 'lion.png', '22h15min'),
-(12, 'c3ds', 'aze c3ds', 'qwertya', 'lion.png', '22h15min'),
-(13, 'c3ds', 'aze c3ds', 'qwertya', 'lion.png', '22h15min'),
-(14, 'c3ds', 'aze c3ds', 'qwertya', 'lion.png', '22h15min'),
-(15, 'c3ds', 'aze c3ds', 'qwertya', 'lion.png', '22h15min'),
-(36, 'c3ds', 'ajout des azeazeazez', 'azeqdazesdfdsgsersdregfxdtxdegm^*lpm^gfhdftdgbdrgdxbg', '1505139326.jpg', '02h35minutes'),
-(38, 'illu', 'azeaze', 'azeazeazeazeqsdqsd', '1505483582.jpg', 'azeazeaze'),
-(39, 'illu', 'azeazeaze', 'azeazeaze', '1505483706.png', 'azeazeaze'),
-(40, 'c3ds', 'logo test', 'zerzerzarze', '1505484252.png', 'zerzreze'),
-(41, 'c3ds', 'logo test', 'zerzerzarze', '1505487617.png', 'zerzreze'),
-(42, 'c3ds', 'logo test', 'zerzerzarze', '1505487640.png', 'zerzreze');
+(44, 'c3ds', 'Plateau de jeu', 'Ce plateau de jeu, ses pions, son dé, les cartes de personnages et les jetons ont été créés par 3 personnes dont moi lors d\'un travail sur la revisite d\'un jeu de société. Nous devions d\'abord dessiner l\'ensemble du jeu et de ses éléments puis les modélis', '1505581767.jpg', '2 semaines à 3 personnes'),
+(45, 'photo', 'Les 24h du Mans 2017', 'Réalisation d\'une affiche sur les 24h du Mans 2017 lors d\'un exercice en classe', '1505582095.jpg', '3h'),
+(46, 'photo', 'La Place de la Bourse', 'Exercice en cours. Il fallait réaliser une affiche en modifiant une photo pré-existante pour lui donner une ambiance apocalyptique', '1505582256.jpg', '2h'),
+(47, 'illu', '3D isométrique', 'Reproduction la plus fidèle possible d\'une photo issue d\'un jeu lors d\'un exercice en classe', '1505582337.jpg', '2h30'),
+(48, 'illu', 'HQ21 de Boom Beach', 'Reproduction la plus fidèle possible d\'une image du jeu vidéo Boom Beach lors d\'un exercice en classe', '1505582660.jpg', '7h'),
+(49, 'illu', 'Les Simpson', 'Reproduction la plus fidèle possible d\'une photo des Simpson. Fait en classe', '1505582987.jpg', '5h'),
+(50, 'illu', 'Les Watchmen Simpsonnisés', 'Dessin puis création sur illustrator de ma version des Watchmen mis au goût des Simpson', '1505583087.jpg', '8h');
 
 -- --------------------------------------------------------
 
@@ -103,11 +92,11 @@ CREATE TABLE `infos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `infos`
+-- Déchargement des données de la table `infos`
 --
 
 INSERT INTO `infos` (`id`, `email`, `telephone`, `apropos`, `photoCV`, `CV`) VALUES
-(1, 'yoan.gcia@gmail.com', '06 40 13 59 33', 'Après avoir obtenu mon BAC STL (Sciences Techniques de Laboratoire), j''ai voulu tenter l''écologie et la prévention. Au bout d’une année dans l''IUT HSE (Hygiène Santé Environnement) de Tulle, je me suis réorienté vers une passion née dès mon plus jeune âge : le jeu vidéo.J''intègre donc ESTEI à Bordeaux où je suis actuellement un bachelor (BAC+3) en infographie/multimédia dans le but de travailler dans le jeu vidéo plutôt du côté de l''image (graphisme, modélisation).', 'photoCV.png', 'CV.pdf');
+(1, 'yoan.gcia@hotmail.fr', '06 40 13 59 33', 'Après avoir obtenu mon BAC STL (Sciences Techniques de Laboratoire), j\'ai voulu tenter l\'écologie et la prévention. Au bout d’une année dans l\'IUT HSE (Hygiène Santé Environnement) de Tulle, je me suis réorienté vers une passion née dès mon plus jeune âge : le jeu vidéo.J\'intègre donc ESTEI à Bordeaux où je suis actuellement un bachelor (BAC+3) en infographie/multimédia dans le but de travailler dans le jeu vidéo plutôt du côté de l\'image (graphisme, modélisation).', 'photoCV.png', 'CV.pdf');
 
 -- --------------------------------------------------------
 
@@ -123,14 +112,14 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `user`
+-- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`id`, `pseudo`, `password`, `role`) VALUES
 (1, 'yoan', '$2y$10$KjiIgoBOfGAlZ05KD/.RYOjhBfQwhlEG5pzCveyWLRiJpckpi45wS', 'admin');
 
 --
--- Index pour les tables exportées
+-- Index pour les tables déchargées
 --
 
 --
@@ -158,7 +147,7 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables exportées
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
@@ -170,7 +159,7 @@ ALTER TABLE `competences`
 -- AUTO_INCREMENT pour la table `creations`
 --
 ALTER TABLE `creations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 --
 -- AUTO_INCREMENT pour la table `infos`
 --
@@ -180,7 +169,8 @@ ALTER TABLE `infos`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
