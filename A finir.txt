@@ -1,0 +1,20 @@
+Global :
+  - soulignement des titres comme dans l'ancien site
+  - toutes les créas vont dans un dossier a part
+
+Page d'accueil:
+  - remettre l'animation de l'ancien site
+
+A propos de moi :
+  - avoir la possibilité de revenir a la ligne dans l'édition
+
+Créations :
+  - bug de la popup
+  - cursor pointer sur la croix
+
+********************
+
+Admin :
+  - formulaire de connection buggé
+  - Peut pas modifier la photo CV
+  - Correctif ou affichage des messages d'erreurs et de réussites

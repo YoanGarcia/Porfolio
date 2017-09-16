@@ -35,12 +35,12 @@
 					}
 					else
 					{
-						$errors[] = 'erreur d\'identification';
+						$errors[] = '<div class="errorconnection"><p>Erreur d\'identification</p></div>';
 					}
 				}
 				else
 				{
-					$errors[] = 'erreur d\'identification';
+					$errors[] = '<div class="errorconnection"><p>Erreur d\'identification</p></div>';
 				}
 			}
 
@@ -238,9 +238,9 @@
 				}		
 			}
 
-			/**
-			 *   MODIFIE UNE/DES CREATION/S
-			 */
+			/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+			/* * * * * * * * * * * * * *  MODIFIE UNE/DES CREATION/S * * * * * * * * * * * * * */
+			/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 			if($post['formulaire'] === 'edit_creation')
 			{				
@@ -318,9 +318,9 @@
 				}
 			}
 
-			/**
-			 *  AJOUTE UNE CREATION
-			 */
+			/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+			/* * * * * * * * * * * * * * * * * AJOUTE UNE CREATION * * * * * * * * * * * * * * */
+			/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 			if($post['formulaire'] === 'add_creation')
 			{				
@@ -414,15 +414,30 @@
 	$req->execute();
 	$creations = $req->fetchall(PDO::FETCH_ASSOC);
 ?>
+
+<!-- ************************************************************************************************** -->
+<!-- ************************************************************************************************** -->
+<!-- ************************************************************************************************** -->
+
 <!DOCTYPE html>
+
 <html>
+
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initiam-scale-1.0" />
 
-		<title>Admin</title>
+		<title>Admin Yoan Garcia</title>
 
-		<!-- <link rel="stylesheet" type="text/css" href="../css/style.css"> -->
+		<link rel="shortcut icon" type="image/jpg" href="IMG/MonLogoNoir.png" />
+		<link rel="stylesheet" type="text/css" href="css/styleadmin.css">
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="../js/script.js" defer></script>
+		<script src="../js/smoothscroll.js" defer></script>
 	</head>
+
 	<body>
 		<?php if (count($errors) != 0): ?>
 
@@ -433,255 +448,321 @@
 		<?php endif ?>
 
 		<?php if (!$connect): ?>
-			<form method="post" action="index.php">
-				<input type="hidden" name="formulaire" value="connection">
 
-				<label>pseudo</label>
-				<input type="text" name="pseudo">
+		<!-- Formulaire de connection -->
+		<form class="form1" method="post" action="index.php">
+			<input class="input1" type="hidden" class="champ" name="formulaire" value="connection">
 
-				<label>password</label>
-				<input type="password" name="password">
+			<div class="group">
+				<input class="input1" type="text" name="pseudo"><span class="highlight"></span><span class="bar"></span>
+				<label class="label1">Pseudo</label>
+			</div>
+			<div class="group">
+				<input class="input1" type="password" name="password" ><span class="highlight"></span><span class="bar"></span>
+				<label class="label1">Password</label>
+			</div>
 
-				<input type="submit" value="connect">
-			</form>
+			<button type="submit" value"connect" class="button buttonBlue">Connection
+				<div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+			</button>
+		</form>
+
 		<?php else: ?>
 
-			<section id="formulaire_infos">
-				<form method="post" action="index.php" enctype="multipart/form-data">
-					<fieldset>
-						<input type="hidden" name="formulaire" value="infos">
+		<!-- Liens directs -->
+		<a href="../index.php" class="backto backtosite">Retour au site</a>
+		<a href="#" class="backto backtotop">Retour en haut</a>
 
-						<label>Telephone</label>
-						<input type="text" name="telephone" value="<?=$infos['telephone']?>">
-						<br>
+		<a href="#" class="backto backtoapropos">A propos</a>
+		<a href="#competences" class="backto backtocompetences">Compétences</a>
+		<a href="#creas" class="backto backtocreations">Création</a>
 
-						<label>Email</label>
-						<input type="email" name="email" value="<?=$infos['email']?>">
-						<br>
-						
-						<label>à propos</label>
-						<textarea name="apropos"><?=$infos['apropos']?></textarea>
-						<br>
+		<!-- Section A propos et footer -->
+		<section id="formulaire_infos">
 
-						<label>PhotoCV</label>
-						<input type="file" name="picture">
-						<br>
+			<!-- Formulaire modification A propos et footer -->
+			<form class="form1 divinlinbloc" method="post" action="index.php" enctype="multipart/form-data">
+				<h1>Information A propos et Footer</h1>
+				<br><br><hr><br>
 
-						<input type="submit" value="Modifier">
-					</fieldset>
-				</form>
+				<input class="input1" type="hidden" name="formulaire" value="infos">
 
-				<form method="post" action="index.php" enctype="multipart/form-data">
-					<fieldset>
-						<input type="hidden" name="formulaire" value="cv">
+				<div class="group">
+					<label class="label1">Téléphone</label><br><br>
+					<input class="input1" type="text" name="telephone" value="<?=$infos['telephone']?>"><span class="highlight"></span><span class="bar"></span>
+				</div>
 
-						<label>CV</label>
-						<br>
-						<input type="file" name="cv">
-						<br>
+				<div class="group">
+					<label class="label1">Email</label><br><br>
+					<input class="input1" type="email" name="email" value="<?=$infos['email']?>"><span class="highlight"></span><span class="bar"></span>
+				</div>
 
-						<input type="submit" value="Modifier">
-					</fieldset>
-				</form>
-			</section>
+				<div class="group">
+					<textarea class="txtapropos" name="apropos"><?=$infos['apropos']?></textarea>
+				</div>
 
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
+				<div class="group">
+					<label class="label1">Photo CV</label><br><br>
+					<input class="input1" type="file" name="picture" value="<?=$infos['email']?>"><span class="highlight"></span><span class="bar"></span>
+				</div>
 
-			<section id="competences">
-				<section id="edit_competences">
-					<form method="post" action="index.php">
-					<fieldset>
-						<input type="hidden" name="formulaire" value="edit_competences">
-						<?php foreach ($competences as $competence): ?>
-							<label><?=$competence['titre']?></label>
-							<input type="number" name="<?=$competence['id']?>" value="<?=$competence['points']?>">	
-							<br>	
-						<?php endforeach ?>
-						<input type="submit" value="Modifier">
-					</fieldset>
-					</form>
-				</section>
+				<input class="boutonedit" type="submit" value="Modifier les infos">
 
-				<section id="add_competences">
-					<form method="post" action="index.php">
-						<fieldset>
-							<input type="hidden" name="formulaire" value="add_competences">
+			</form>
+
+			<!-- Formulaire de modification du CV -->
+			<form class="form1 divinlinbloc" method="post" action="index.php" enctype="multipart/form-data">
+				<h1>Modification du CV</h1>
+				<br><br><hr><br>
+
+				<input class="input1" type="hidden" name="formulaire" value="cv">
+
+				<div class="group">
+					<label class="label1">Mon CV</label><br><br>
+					<input class="input1" type="file" name="cv"><span class="highlight"></span><span class="bar"></span>
+				</div>
+
+				<input class="boutonedit" type="submit" value="Modifier le CV">
+			</form>
+		</section>
+
+		<br><br><hr><hr><hr><hr><br><br> <!-- *********************************************** -->
+
+		<!-- Section Compétences -->
+		<section id="competences">
+
+			<div class="divinlinbloc">
+				<div class="divinlinbloc">
+
+					<section id="edit_competences">
+
+						<!-- Formulaire modification des compétences -->
+						<form class="form1" method="post" action="index.php">
+
+							<h1>Modification des compétences</h1>
+							<br><br><hr><br>
+
+							<input class="input1" type="hidden" name="formulaire" value="edit_competences">
+
+							<?php foreach ($competences as $competence): ?>
+								<div class="group">
+									<div class="divinlinbloc">
+										<label class="label2"><?=$competence['titre']?></label>
+									</div>
+									<div class="divinlinbloc">
+										<input class="input2" type="number" name="<?=$competence['id']?>" value="<?=$competence['points']?>"><span class="highlight"></span><span class="bar"></span>
+									</div>
+								</div>	
+							<?php endforeach ?>
+
+							<br><br>
+							<input class="boutonedit" type="submit" value="Modifier les compétences">
+						</form>
+
+					</section>
+					
+				</div>
+
+				<div class="divinlinbloc">
+				
+					<section id="add_competences">
+
+						<!-- Formulaire d'ajout d'une compétence -->
+						<form class="form1" method="post" action="index.php">
+
+							<h1>Ajouter une compétence</h1>
+							<br><br><hr><br>
+
+							<input class="input1" type="hidden" name="formulaire" value="add_competences">
+
+							<div class="group">
+								<label class="label1">Nom de la compétence</label><br><br>
+								<input class="input1" type="text" name="titre"><span class="highlight"></span><span class="bar"></span>
+							</div>
+
+							<div class="group">
+								<div class="divinlinbloc">
+									<label class="label2">Points de compétences</label>
+								</div>
+								<div class="divinlinbloc">
+									<input class="input2" type="number" name="points"><span class="highlight"></span><span class="bar"></span>
+								</div>
+							</div>
 							
-							<label>Nom de la competence</label>
-							<input type="text" name="titre">
-							<br>
+							<input class="boutonedit" type="submit" value="Ajouter la compétence">
 
-							<label>Points de competence</label>
-							<input type="number" name="points">
-							<br>
+						</form>
 
-							<input type="submit" value="Ajouter">
-						</fieldset>
-					</form>
-				</section>
+					</section>
 
-				<section id="del_competences">
-					<form method="post" action="index.php" enctype="multipart/form-data">
-						<fieldset>
-							<input type="hidden" name="formulaire" value="del_competences">
-							
+					<!-- Formulaire de suppression de compétences -->
+					<section id="del_competences">
+
+						<form class="form1" method="post" action="index.php" enctype="multipart/form-data">
+
+							<h1>Supprimer une compétence</h1>
+							<br><br><hr><br>
+
+							<input class="input1" type="hidden" name="formulaire" value="del_competences">
+								
 							<SELECT name="id" size="1">
 								<?php foreach ($competences as $competence): ?>
 									<option value="<?=$competence['id']?>"><?=$competence['titre']?></option>									
 								<?php endforeach ?>	
 							</SELECT>
-							<br>
+							<br><br>
 
-							<input type="submit" value="Supprimer">
-						</fieldset>
-					</form>
-				</section>
+							<input class="boutonedit" type="submit" value="Supprimer la compétence">
 
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
+						</form>
+					</section>
+					
+				</div>
+			</div>
+				
+			<br><br><hr><hr><hr><hr><br><br> <!-- *********************************************** -->
 
-				<section id="add_creation">
-					<form method="post" action="index.php" enctype="multipart/form-data">
-						<fieldset>
-							<input type="hidden" name="formulaire" value="add_creation">
+			<!-- Section Créations -->
+			<div id="creas" class="divinlinbloc">
+				<div class="divinlinbloc">
+
+					<section id="add_creation">
+
+						<!-- Formulaire d'ajout d'une création -->
+						<form class="form1" method="post" action="index.php" enctype="multipart/form-data">
+
+							<h1>Ajouter une création</h1>
+							<br><br><hr><br>
+
+							<input class="input1" type="hidden" name="formulaire" value="add_creation">
+
+							<div class="group">
+								<label class="label1">Titre</label><br><br>
+								<input class="input1" type="text" name="titre"><span class="highlight"></span><span class="bar"></span>
+							</div>
+
+							<div class="group">
+								<label class="label1">Temps de travail</label><br><br>
+								<input class="input1" type="text" name="temp"><span class="highlight"></span><span class="bar"></span>
+							</div>
+
+							<div class="group">
+								<label class="label1">Photo de la création</label><br><br>
+								<input class="input1" type="file" name="picture"><span class="highlight"></span><span class="bar"></span>
+							</div>
+
+							<div class="group">
+								<label class="label1">Description</label><br><br>
+								<textarea class="txtdescription" name="description"></textarea>
+							</div>
+
+							<div class="group">
+								<label class="label1">Type :</label><br><br>
+								
+								<label>Adobe Photoshop
+									<input type="radio" name="type" value="photo">
+								</label><br>
+								<label>Adobe Illustrator
+									<input type="radio" name="type" value="illu">
+								</label><br>
+								<label>3DS Max
+									<input type="radio" name="type" value="c3ds">
+								</label><br>
+							</div>
+
+							<input class="boutonedit" type="submit" value="Ajouter la création">
+
+						</form>
+					</section>
+					
+				</div>
+				
+				<div class="divinlinbloc">
+
+					<section id="del_creation">
+
+						<!-- Formulaire de suppression d'une création -->
+						<form class="form1" method="post" action="index.php" enctype="multipart/form-data">
+
+							<h1>Supprimer une création</h1>
+							<br><br><hr><br>
 							
-							<label>Titre</label>
-							<input type="text" name="titre">
-							<br>
-
-							<label>Temp de travail</label>
-							<input type="text" name="temp">
-							<br>
-
-							<br>
-							<label>Images</label>
-							<input type="file" name="picture">
-							<br>
-
-							<label>Description</label>
-							<textarea name="description"></textarea>
-							<br>
-
-							<label>Type :</label>
-							<br>
-							<label>Adobe Photoshop<input type="radio" name="type" value="photo"></label><br>
-							<label>Adobe Illustrator<input type="radio" name="type" value="illu"></label><br>
-							<label>3ds Max<input type="radio" name="type" value="c3ds"></label><br>
-							<br>
-
-							<input type="submit" value="Ajouter">
-						</fieldset>
-					</form>
-				</section>
-
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-
-				<section id="del_creation">
-					<form method="post" action="index.php" enctype="multipart/form-data">
-						<fieldset>
-							<input type="hidden" name="formulaire" value="del_creation">
-							
+							<input class="input1" type="hidden" name="formulaire" value="del_creation">
+								
 							<SELECT name="id" size="1">
 								<?php foreach ($creations as $creation): ?>
 									<option value="<?=$creation['id']?>"><?=$creation['titre']?></option>									
 								<?php endforeach ?>	
 							</SELECT>
-							<br>
+							<br><br>
 
-							<input type="submit" value="Supprimer">
-						</fieldset>
-					</form>
-				</section>
+							<input class="boutonedit" type="submit" value="Supprimer la création">
 
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-
-				<section id="edit_creation">
-					<?php foreach ($creations as $creation): ?>
-						<form method="post" action="index.php" enctype="multipart/form-data">
-							<fieldset>
-								<input type="hidden" name="formulaire" value="edit_creation">
-								<input type="hidden" name="creation_id" value="<?=$creation['id']?>">
-								<input type="hidden" name="creation_img" value="<?=$creation['img']?>">
-								
-								<label>Titre</label>
-								<input type="text" name="titre" value="<?=$creation['titre']?>">
-								<br>
-
-								<label>Temp de travail</label>
-								<input type="text" name="temp" value="<?=$creation['temp']?>">
-								<br>
-
-								<img src="../IMG/<?=$creation['img']?>" width="50" height="50">
-								<br>
-								<label>Images</label>
-								<input type="file" name="picture">
-								<br>
-
-								<label>Description</label>
-								<textarea name="description"><?=$creation['description']?></textarea>
-								<br>
-
-								<label>Type :</label>
-								<br>
-								<label>Adobe Photoshop<input type="radio" name="type" value="photo" <?= ($creation['type'] === 'photo') ? 'checked' : '' ?> ></label><br>
-								<label>Adobe Illustrator<input type="radio" name="type" value="illu" <?= ($creation['type'] === 'illu') ? 'checked' : '' ?> ></label><br>
-								<label>3ds Max<input type="radio" name="type" value="c3ds" <?= ($creation['type'] === 'c3ds') ? 'checked' : '' ?> ></label><br>
-								<br>
-
-								
-								<input type="submit" value="Modifier">
-							</fieldset>
 						</form>
-					<?php endforeach ?>
-				</section>
+					</section>
+					
+				</div>
+			</div>
 
-			</section>		
+			<br><br><hr><hr><hr><hr><br><br> <!-- *********************************************** -->
+
+			<!-- Section de formulaires de modification des créations -->
+			<section id="edit_creation">
+
+				<div class="form1">
+					<h1>Modifier une création</h1>
+					<br><br><hr><br>
+				</div>
+
+				<div class="divinlinbloc">
+
+					<?php foreach ($creations as $creation): ?>
+						<form class="form1 divinlinbloc" method="post" action="index.php" enctype="multipart/form-data">
+
+								<input class="input1" type="hidden" name="formulaire" value="edit_creation">
+								<input class="input1" type="hidden" name="creation_id" value="<?=$creation['id']?>">
+								<input class="input1" type="hidden" name="creation_img" value="<?=$creation['img']?>">
+
+								<div class="group">
+									<label class="label1">Titre</label><br><br>
+									<input class="input1" type="text" name="titre" value="<?=$creation['titre']?>"><span class="highlight"></span><span class="bar"></span>
+								</div>
+
+								<div class="group">
+									<label class="label1">Temps de travail</label><br><br>
+									<input class="input1" type="text" name="temp" value="<?=$creation['temp']?>"><span class="highlight"></span><span class="bar"></span>
+								</div>
+
+								<img src="../IMG/<?=$creation['img']?>" width="150" height="150">
+
+								<div class="group">
+									<label class="label1">Image</label><br><br>
+									<input class="input1" type="file" name="picture"><span class="highlight"></span><span class="bar"></span>
+								</div>
+
+								<div class="group">
+									<label class="label1">Description</label><br><br>
+									<textarea class="txtdescription" name="description"><?=$creation['description']?></textarea>
+								</div>
+
+								<div class="group">
+									<label class="label1">Type :</label><br><br>
+									
+									<label>Adobe Photoshop<input type="radio" name="type" value="photo" <?= ($creation['type'] === 'photo') ? 'checked' : '' ?> ></label><br>
+									<label>Adobe Illustrator<input type="radio" name="type" value="illu" <?= ($creation['type'] === 'illu') ? 'checked' : '' ?> ></label><br>
+									<label>3ds Max<input type="radio" name="type" value="c3ds" <?= ($creation['type'] === 'c3ds') ? 'checked' : '' ?> ></label><br>
+								</div>
+								
+								<input class="boutonedit" type="submit" value="Modifier la création">
+						</form>
+
+					<?php endforeach ?>
+				</div>
+
+			</section>
+
+		</section>
+
 		<?php endif ?>
 	</body>
 </html>

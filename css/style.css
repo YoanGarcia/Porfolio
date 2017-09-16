@@ -1,3 +1,6 @@
+/* * * * * * * * * * * * * * * * *    GLOBAL    * * * * * * * * * * * * * * * * */
+/*  * * * * * * * * * * * * * * * * --- -- --- * * * * * * * * * * * * * * * *  */
+
 @font-face {
     font-family: 'eaglelake';
     src: url('font/Eagle_Lake/EagleLake-Regular.ttf');
@@ -39,10 +42,15 @@ body > header > section
 
 body
 {
-	background-image: url('../IMG/lion.jpg');
+	background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../IMG/lion.jpg");
+	background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../IMG/lion.jpg");
+	background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../IMG/lion.jpg");
+	background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../IMG/lion.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
+	background-position: center center;
+	text-align: center;
 	margin: 0 auto;
 }
 
@@ -80,6 +88,15 @@ nav a
 	top: -25px;
 	text-decoration: none;
 }
+
+h1
+{
+	font-weight: lighter;
+	font-size: 26pt;
+}
+
+/* * * * * * * * * * * * * * * * *    SECTION DEPART    * * * * * * * * * * * * * * * * */
+/*  * * * * * * * * * * * * * * * * --- --- -- --- --- * * * * * * * * * * * * * * * *  */
 
 #sidemenu{
 	display: none;
@@ -133,12 +150,6 @@ nav a
 	text-decoration: none;
 }
 
-h1
-{
-	font-weight: lighter;
-	font-size: 26pt;
-}
-
 #nom_desc
 {
 	display: inline-block;
@@ -188,6 +199,13 @@ h1
     width: 1.5em;
 }
 
+.boutondepart:hover {
+	text-shadow: 4px 4px 10px white;
+}
+
+/* * * * * * * * * * * * * * * * *    SECTION A PROPOS    * * * * * * * * * * * * * * * * */
+/*  * * * * * * * * * * * * * * * * --- ---  --  --- --- * * * * * * * * * * * * * * * *  */
+
 #apropo
 {
 	background: rgb(45, 127, 139);
@@ -207,27 +225,30 @@ h1
 {
 	position: relative;
 	top: -35px;
+	font-size: 15pt;
+	font-family: trebuchet;
 }
 
-.buttonblanc
+.boutonapropos
 {
 	padding: 5px 10px 5px 10px;
 	border: white solid 2px;
-	border-radius: 2px;
+	border-radius: 5px;
 	text-decoration: none;
 	text-align: center;
 	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-.buttonblanc:hover
+.boutonapropos:hover
 {
 	background-color: rgba(255, 255, 255, 0.075);
+	box-shadow: 0px 0px 75px white;
 }
 
 #img_cv
 {
-	width: 200px;
-	height:200px;
+	width: 220px;
+	height:220px;
 	margin: calc(100%/2 - 300px) 40px 40px 40px;
 	display: inline-block;
 }
@@ -238,7 +259,8 @@ h1
 	width: calc(100% - 304px);
 }
 
-
+/* * * * * * * * * * * * * * * * *    SECTION COMPETENCES    * * * * * * * * * * * * * * * * */
+/*  * * * * * * * * * * * * * * * * ---  ---  ---  ---  --- * * * * * * * * * * * * * * * *  */
 
 #competences
 {
@@ -320,6 +342,9 @@ h1
 	border-radius: 12px;	
 }
 
+/* * * * * * * * * * * * * * * * *    SECTION CREATIONS    * * * * * * * * * * * * * * * * */
+/*  * * * * * * * * * * * * * * * * --- ---  ---  --- --- * * * * * * * * * * * * * * * *  */
+
 #MesCreations
 {
 	background-color: rgb(45, 127, 139);
@@ -369,6 +394,15 @@ h1
 	height: 250px;
 	background-color: rgb(15, 81, 90);
 	margin: 0px 10px 10px 0px;
+	border-radius: 2px;
+}
+
+.creation:hover
+{
+	cursor: pointer;
+	text-decoration: none;
+	opacity: 0.8;
+	box-shadow: 0px 0px 15px #0F515A;
 }
 
 .creation h1
@@ -383,8 +417,6 @@ h1
 {
 	display: none;
 }
-
-
 
 .creation img
 {
@@ -441,6 +473,25 @@ h1
 	height: 20px;
 	width: 20px;
 }
+
+.boutoncreations
+{
+	padding: 5px 10px 5px 10px;
+	border: white solid 2px;
+	border-radius: 5px;
+	text-decoration: none;
+	text-align: center;
+	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.boutoncreations:hover
+{
+	background-color: rgba(255, 255, 255, 0.075);
+	opacity: 0.5;
+}
+
+/* * * * * * * * * * * * * * * * *    SECTION FOOTER    * * * * * * * * * * * * * * * * */
+/*  * * * * * * * * * * * * * * * * --- --- -- --- --- * * * * * * * * * * * * * * * *  */
 
 #contact
 {	
