@@ -135,7 +135,7 @@ body
 	border-bottom: 1px solid #757575;
 }
 
-.input1:focus , .input0:focus { outline: none; }
+.input1:focus , .input0:focus { outline: none; border-bottom: 1px solid rgba(0,0,0,0);}
 
 
 /* Label */
