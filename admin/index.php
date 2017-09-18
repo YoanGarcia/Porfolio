@@ -170,31 +170,6 @@ session_start();
 
 				if(count($errors) == 0)
 				{
-					if(!empty($_FILES) && isset($_FILES['picture']))
-					{
-					    if ($_FILES['picture']['error'] == UPLOAD_ERR_OK) 
-					    {
-					        $nomFichier = $_FILES['picture']['name'];
-					        $tmpFichier = $_FILES['picture']['tmp_name']; 
-					                       
-				            $newFileName = explode('.', $nomFichier);
-				            $fileExtension = end($newFileName);
-
-				            $finalFileName = 'photoCV.'.$fileExtension; 
-
-				            if(move_uploaded_file($tmpFichier, '../IMG/'.$finalFileName)) 
-				            {  
-				                success_text('la photo a bien était mise à jour</p></div>');
-				                unset($_FILES['picture']);  
-				            }
-					    }
-					    else
-					    {
-					    	$errors[] = errors_text('erreur d\'upload de limage . code : '.$_FILES['picture']['error']);
-					    	unset($_FILES['picture']);
-					    } 
-					}
-
 					foreach ($competences as $competence) 
 					{	
 						$req = $bdd->prepare('UPDATE competences SET points = ? WHERE id = '.$competence['id']);
