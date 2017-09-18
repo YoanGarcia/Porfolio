@@ -94,6 +94,34 @@ body
 	margin-bottom: 45px; 
 }
 
+
+.input0 {
+	margin-left: 100px;
+	font-size: 18px;
+	padding: 10px 10px 10px 5px;
+	-webkit-appearance: none;
+	display: block;
+	background: #fafafa;
+	color: #636363;
+	width: 80%;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #757575;
+}
+
+.label0 {
+	color: #999; 
+	font-size: 18px;
+	font-weight: normal;
+	position: absolute;
+	pointer-events: none;
+	left: 5px;
+	top: 10px;
+	-webkit-transition:all 0.2s ease;
+	transition: all 0.2s ease;
+}
+
+
 .input1 {
 	font-size: 18px;
 	padding: 10px 10px 10px 5px;
@@ -107,7 +135,7 @@ body
 	border-bottom: 1px solid #757575;
 }
 
-.input1:focus { outline: none; }
+.input1:focus , .input0:focus { outline: none; }
 
 
 /* Label */
@@ -127,7 +155,7 @@ body
 
 /* active */
 
-.input:focus ~ .label1, .input1.used ~ .label1 {
+.input:focus ~ .label1, .input1.used ~ .label1, .input0.used ~ .label0 {
 	top: -20px;
     -webkit-transform: scale(.75);
     transform: scale(.75); left: -2px;
@@ -161,7 +189,7 @@ body
 
 /* active */
 
-.input1:focus ~ .bar:before, .input1:focus ~ .bar:after { width: 50%; }
+.input1:focus ~ .bar:before, .input1:focus ~ .bar:after, .input0:focus ~ .bar:before, .input0:focus ~ .bar:after { width: 50%; }
 
 
 /* Highlight */
@@ -179,7 +207,7 @@ body
 
 /* active */
 
-.input1:focus ~ .highlight {
+.input1:focus ~ .highlight,  .input0:focus ~ .highlight{
 	-webkit-animation: inputHighlighter 0.3s ease;
 	        animation: inputHighlighter 0.3s ease;
 }
@@ -266,7 +294,7 @@ body
           animation: ripples .4s ease-in;
 }
 
-.errorconnection {
+.errors {
 	background: red;
 	width: 30%;
 	height: 30px;
@@ -277,7 +305,23 @@ body
 	padding-top: 2px;
 }
 
-.errorconnection > p {
+.errors > p {
+	color: white;
+	padding-top: 2px;
+}
+
+.success {
+	background: green;
+	width: 30%;
+	height: 30px;
+	margin-left: 35%;
+	margin-right: 35%;
+	margin-top: 50px;
+	border-radius: 2px;
+	padding-top: 2px;
+}
+
+.success > p {
 	color: white;
 	padding-top: 2px;
 }

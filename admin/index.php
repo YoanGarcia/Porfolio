@@ -5,6 +5,7 @@ session_start();
 
 	$connect = false;
 	$errors = [];
+	$success = [];
 	
 	if(isset($_SESSION['user']) && $_SESSION['user']['role'] === 'admin')
 	{
@@ -38,16 +39,15 @@ session_start();
 							'role'		  => $user['role'],
 							];
 						$connect = true;
-						session_destroy();
 					}
 					else
 					{
-						$errors[] = '<div class="errorconnection"><p>Erreur d\'identification</p></div>';
+						$errors[] = '<div class="errors"><p>Erreur d\'identification</p></div>';
 					}
 				}
 				else
 				{
-					$errors[] = '<div class="errorconnection"><p>Erreur d\'identification</p></div>';
+					$errors[] = '<div class="errors"><p>Erreur d\'identification</p></div>';
 				}
 			}
 
@@ -55,12 +55,12 @@ session_start();
 			{
 				if(!isset($post['email']) || empty($post['email']))
 				{
-					$errors[] = 'l\'email ne doit pas étre vide';
+					$errors[] = '<div class="errors"><p>l\'email ne doit pas étre vide</p></div>';
 				}
 
 				if(!isset($post['apropos']) || empty($post['apropos']))
 				{
-					$errors[] = 'apropos ne doit pas étre vide';
+					$errors[] = '<div class="errors"><p>apropos ne doit pas étre vide</p></div>';
 				}
 
 				if(!empty($_FILES) && isset($_FILES['picture']))
@@ -76,8 +76,8 @@ session_start();
 			            $finalFileName = 'photoCV.'.$fileExtension; 
 
 			            if(move_uploaded_file($tmpFichier, '../IMG/'.$finalFileName)) 
-			            {
-			                echo '<script>alert(\'la photo a bien était mise à jour\')</script>';  
+			            { 
+			                $success[] = '<div class="success"><p>la photo a bien était mise à jour</p></div>';
 			                unset($_FILES['picture']);  
 			            }
 				    }
@@ -85,7 +85,7 @@ session_start();
 				    {
 				    	if($_FILES['picture']['error'] != 4)
 				    	{
-				    		$errors[] =  'erreur d\'upload de limage . code : '.$_FILES['picture']['error'];
+				    		$errors[] = '<div class="errors"><p>erreur d\'upload de limage . code : '.$_FILES['picture']['error'].'</p></div>';
 				    	}
 				    	else
 				    	{
@@ -105,7 +105,7 @@ session_start();
 							$finalFileName,
 						]))
 					{
-						echo '<script>alert(\'les informations ont bien était mises à jour\')</script>';
+						$success[] = '<div class="success"><p>la photo a bien était mise à jour</p></div>';
 					}
 				}
 			}
@@ -129,7 +129,7 @@ session_start();
 			                $req = $bdd->prepare('UPDATE infos SET CV = ? WHERE id = 1');
 							if($req->execute([$finalFileName]))
 							{
-								echo '<script>alert(\'les informations ont bien était mises à jour\')</script>';
+								$success[] = '<div class="success"><p>les informations ont bien était mises à jour</p></div>';
 							} 
 			                unset($_FILES['cv']);  
 			            }
@@ -420,6 +420,8 @@ session_start();
 	$req = $bdd->prepare('SELECT * FROM creations');
 	$req->execute();
 	$creations = $req->fetchall(PDO::FETCH_ASSOC);
+
+	unset($_SESSION['user']);
 ?>
 
 <!-- ************************************************************************************************** -->
@@ -461,12 +463,12 @@ session_start();
 			<input class="input1" type="hidden" class="champ" name="formulaire" value="connection">
 
 			<div class="group">
-				<input class="input1" type="text" name="pseudo"><span class="highlight"></span><span class="bar"></span>
-				<label class="label1">Pseudo</label>
+				<input class="input0" type="text" name="pseudo"><span class="highlight"></span><span class="bar"></span>
+				<label class="label0">Pseudo</label>
 			</div>
 			<div class="group">
-				<input class="input1" type="password" name="password" ><span class="highlight"></span><span class="bar"></span>
-				<label class="label1">Password</label>
+				<input class="input0" type="password" name="password" ><span class="highlight"></span><span class="bar"></span>
+				<label class="label0">Password</label>
 			</div>
 
 			<button type="submit" value"connect" class="button buttonBlue">Connection
@@ -740,7 +742,7 @@ session_start();
 									<input class="input1" type="text" name="temp" value="<?=$creation['temp']?>"><span class="highlight"></span><span class="bar"></span>
 								</div>
 
-								<img src="../IMG/<?=$creation['img']?>" width="150" height="150">
+								<img src="../IMG/creations/<?=$creation['img']?>" width="150" height="150">
 
 								<div class="group">
 									<label class="label1">Image</label><br><br>
