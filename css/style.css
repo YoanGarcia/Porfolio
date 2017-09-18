@@ -53,23 +53,13 @@ body
 	text-align: center;
 	margin: 0 auto;
 	animation-name: body_background;
-	animation-duration: 10s;
+	animation-duration: 7s;
 }
 
 @keyframes background
 {
-	0%
-	{
-		background-color: rgba(0,0,0,1);
-	}
-	50%
-	{
-		background-color: rgba(0,0,0,0.5);
-	}
-	100%
-	{
-		background-color: rgba(0,0,0,0);
-	}
+	0%     { background-color: rgba(0,0,0,1); }
+	100%   { background-color: rgba(0,0,0,0); }
 } 
 
 
@@ -79,7 +69,7 @@ body
 	width: 100vw;
 	height: 100vh;
 	animation-name: background;
-	animation-duration: 5s;
+	animation-duration: 7s;
 	animation-fill-mode: forwards;
 	z-index: -1;
 }
