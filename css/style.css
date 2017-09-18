@@ -40,6 +40,26 @@ body > header > section
 	display: flex;
 }
 
+
+@keyframes body_background
+{
+	0%
+	{
+		background-image: -moz-linear-gradient(top, rgba(0,0,0,1), rgba(0,0,0,1)), url("../IMG/lion.jpg");
+		background-image: -webkit-linear-gradient(top, rgba(0,0,0,1), rgba(0,0,0,1)), url("../IMG/lion.jpg");
+		background-image: -ms-linear-gradient(top, rgba(0,0,0,1), rgba(0,0,0,1)), url("../IMG/lion.jpg");
+		background-image: linear-gradient(top, rgba(0,0,0,1), rgba(0,0,0,1)), url("../IMG/lion.jpg");
+	}
+	100%
+	{
+		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../IMG/lion.jpg");
+		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../IMG/lion.jpg");
+		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../IMG/lion.jpg");
+		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../IMG/lion.jpg");
+	}
+} 
+
+
 body
 {
 	background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../IMG/lion.jpg");
@@ -52,6 +72,8 @@ body
 	background-position: center center;
 	text-align: center;
 	margin: 0 auto;
+	animation-name: body_background;
+	animation-duration: 10s;
 }
 
 header
