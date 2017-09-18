@@ -1,5 +1,5 @@
 Global :
-  - soulignement des titres comme dans l'ancien site
+  - soulignement des titres comme dans l'ancien site			
   - toutes les créas vont dans un dossier a part			FAIT
 
 Page d'accueil:

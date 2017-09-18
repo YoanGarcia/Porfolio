@@ -81,7 +81,10 @@
 		<section id="apropo">
 			<section class="t960px">
 
-				<h1 class='lake'>A propos de moi</h1>
+				<section class="titre_section">
+					<h1 class='lake'>A propos de moi</h1>
+				</section>
+
 				<div id="img_cv">
 					<img src="IMG/<?=$infos['photoCV']?>" width="200" heigth="200">
 				</div>
