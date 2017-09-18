@@ -100,8 +100,10 @@
 		<section id="competences">
 			<section class="t960px">
 
-				<h1 class='lake'>Mes compétences</h1>
-
+				<section class="titre_section">
+					<h1 class='lake'>Mes compétences</h1>
+				</section>
+				
 				<section id="competences_2">
 					<?php foreach ($competences as $competence): ?>
 						<section class="competence">
@@ -125,8 +127,10 @@
 		<section id="MesCreations">
 			<section class="t960px">
 
-				<h1 class='lake'>Mes créations</h1>
-
+				<section class="titre_section">
+					<h1 class='lake'>Mes créations</h1>
+				</section>
+				
 				<section id="select_creations">
 					<img src="IMG/MonLogoNoir.png" width=60 height=60>
 					<a id="all_creations" class="boutoncreations lake" href="">Tous les travaux</a>

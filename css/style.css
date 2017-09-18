@@ -285,9 +285,10 @@ h1
 
 #competences h1
 {
-	text-decoration: underline;
-	padding: 120px 0px 0px 0px;
-	margin: 0px 0px 35px 0px;
+	display: inline;
+	font-size: 26pt;
+    border-bottom: 2px solid white;
+    padding: 0px 0px 30px 0px ; 
 }
 
 .competence
@@ -362,9 +363,10 @@ h1
 
 #MesCreations h1
 {
-	text-decoration: underline;
-	padding: 120px 0px 0px 0px;
-	margin: 0px 0px 35px 0px;
+	display: inline;
+	font-size: 26pt;
+    border-bottom: 2px solid white;
+    padding: 0px 0px 30px 0px ; 
 }
 
 #select_creations
