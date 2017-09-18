@@ -179,6 +179,14 @@ Array.prototype.map.call(creation, function(crea)
 
 		popup_close = document.querySelector('#popup_creation_close');
 		popup = document.querySelector('#popup_creation');
+
+		var height_popup = popup.offsetHeight / 2;
+		var height_img = popup.children[0].offsetHeight / 2;
+
+		margintop = (height_popup - height_img) + "px";
+
+		popup.children[0].style.marginTop = margintop;
+
 		if(popup_close)
 		{
 			popup_close.addEventListener('click', function()

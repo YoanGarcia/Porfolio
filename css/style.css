@@ -447,9 +447,10 @@ h1
 #popup_creation img
 {
 	position: absolute;
+	display: inline-block;
+	vertical-align: center;
 	left: 0px;
 	top: 0px;
-	margin: 5px;
 	width: calc(50% - 10px);
 	height: auto;
 }
