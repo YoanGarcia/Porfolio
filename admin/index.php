@@ -6,6 +6,16 @@ session_start();
 	$connect = false;
 	$errors = [];
 	$success = [];
+
+	function errors_text($text)
+	{
+		return '<div class="errors"><p>' . $text . '</p></div>';
+	}
+
+	function success_text($text)
+	{
+		echo '<script>alert(\'' . $text . '\')</script>';
+	}
 	
 	if(isset($_SESSION['user']) && $_SESSION['user']['role'] === 'admin')
 	{
@@ -13,12 +23,8 @@ session_start();
 		session_destroy();
 	}
 
-	var_dump($_POST);
-	
 	if(!empty($_POST))
 	{
-
-
 		$post = array_map('strip_tags', $_POST);
 		$post = array_map('trim', $post);
 
@@ -42,12 +48,13 @@ session_start();
 					}
 					else
 					{
-						$errors[] = '<div class="errors"><p>Erreur d\'identification</p></div>';
+						echo 'errors';
+						$errors[] = errors_text('Erreur d\'identification');
 					}
 				}
 				else
 				{
-					$errors[] = '<div class="errors"><p>Erreur d\'identification</p></div>';
+					$errors[] = errors_text('Erreur d\'identification');
 				}
 			}
 
@@ -55,12 +62,12 @@ session_start();
 			{
 				if(!isset($post['email']) || empty($post['email']))
 				{
-					$errors[] = '<div class="errors"><p>l\'email ne doit pas étre vide</p></div>';
+					$errors[] = errors_text('l\'email ne doit pas étre vide');
 				}
 
 				if(!isset($post['apropos']) || empty($post['apropos']))
 				{
-					$errors[] = '<div class="errors"><p>apropos ne doit pas étre vide</p></div>';
+					$errors[] = errors_text('apropos ne doit pas étre vide');
 				}
 
 				if(!empty($_FILES) && isset($_FILES['picture']))
@@ -76,8 +83,8 @@ session_start();
 			            $finalFileName = 'photoCV.'.$fileExtension; 
 
 			            if(move_uploaded_file($tmpFichier, '../IMG/'.$finalFileName)) 
-			            { 
-			                $success[] = '<div class="success"><p>la photo a bien était mise à jour</p></div>';
+			            {
+			                success_text('la photo a bien était mise à jour');
 			                unset($_FILES['picture']);  
 			            }
 				    }
@@ -85,7 +92,7 @@ session_start();
 				    {
 				    	if($_FILES['picture']['error'] != 4)
 				    	{
-				    		$errors[] = '<div class="errors"><p>erreur d\'upload de limage . code : '.$_FILES['picture']['error'].'</p></div>';
+				    		$errors[] = errors_text('erreur d\'upload de limage . code : '.$_FILES['picture']['error']);
 				    	}
 				    	else
 				    	{
@@ -105,7 +112,7 @@ session_start();
 							$finalFileName,
 						]))
 					{
-						$success[] = '<div class="success"><p>la photo a bien était mise à jour</p></div>';
+						success_text('les informations on bien était mise à jour');
 					}
 				}
 			}
@@ -129,14 +136,14 @@ session_start();
 			                $req = $bdd->prepare('UPDATE infos SET CV = ? WHERE id = 1');
 							if($req->execute([$finalFileName]))
 							{
-								$success[] = '<div class="success"><p>les informations ont bien était mises à jour</p></div>';
+								success_text('les informations ont bien était mises à jour');
 							} 
 			                unset($_FILES['cv']);  
 			            }
 				    }
 				    else
 				    {
-				    	$errors[] =  'erreur d\'upload de limage . code : '.$_FILES['picture']['error'];			    	
+				    	$errors[] = errors_text('erreur d\'upload de limage . code : '.$_FILES['picture']['error']);    	
 				    	unset($_FILES['picture']);
 				    } 
 				}
@@ -156,7 +163,7 @@ session_start();
 
 						if($post[$competence['id']] < 0 || $post[$competence['id']] > 5)
 						{
-							$errors[] = $comptence['titre'].' doit etre compris entre 0 et 5';
+							$errors[] = errors_text('erreur d\'upload de limage . code : '.$comptence['titre'].' doit etre compris entre 0 et 5');
 						}
 					}
 				}
@@ -176,14 +183,14 @@ session_start();
 				            $finalFileName = 'photoCV.'.$fileExtension; 
 
 				            if(move_uploaded_file($tmpFichier, '../IMG/'.$finalFileName)) 
-				            {
-				                echo '<script>alert(\'la photo a bien était mise à jour\')</script>';  
+				            {  
+				                success_text('la photo a bien était mise à jour</p></div>');
 				                unset($_FILES['picture']);  
 				            }
 					    }
 					    else
 					    {
-					    	$errors[] = 'erreur d\'upload de limage';
+					    	$errors[] = errors_text('erreur d\'upload de limage . code : '.$_FILES['picture']['error']);
 					    	unset($_FILES['picture']);
 					    } 
 					}
@@ -195,7 +202,7 @@ session_start();
 								$post[$competence['id']]
 							]))
 						{
-							echo '<script>alert(\'erreur impossible de metre a jour la competence '.$competence['titre'].'\')</script>';
+							$errors[] = errors_text('erreur impossible de metre a jour la competence '.$competence['titre']);
 						}
 					}
 				}
@@ -205,7 +212,7 @@ session_start();
 			{
 				if(!isset($post['titre']) || empty($post['titre']))
 				{
-					$errors[] = 'le Nom ne doit pas étre vide';
+					$errors[] = errors_text('le Nom ne doit pas étre vide');
 				}
 
 				if(empty($post['points']) || !isset($post['points']))
@@ -214,7 +221,7 @@ session_start();
 
 					if($post['points'] < 0 || $post['points'] > 5)
 					{
-						$errors[] = ' le nombre de points doit etre compris entre 0 et 5';
+						$errors[] = errors_text('le nombre de points doit etre compris entre 0 et 5');
 					}
 				}
 
@@ -226,7 +233,7 @@ session_start();
 							$post['points']
 						]))
 					{
-						echo '<script>alert(\'la competence '.$post['titre'].' à bien était ajouter\')</script>';
+						success('la competence '.$post['titre'].' à bien était ajouter\'');
 					}
 				}
 			}
@@ -240,7 +247,7 @@ session_start();
 							$post['id'],
 						]))
 					{
-						echo '<script>alert(\'la competence '.$post['titre'].' à bien était Supprimer\')</script>';
+						success_text('la competence '.$post['titre'].' à bien était Supprimer\'');
 					}
 				}		
 			}
@@ -253,22 +260,22 @@ session_start();
 			{				
 				if(!isset($post['type']) || empty($post['type']))
 				{
-					$errors[] = 'le Type ne doit pas étre vide';
+					$errors[] = errors_text('le Type ne doit pas étre vide');
 				}
 
 				if(!isset($post['titre']) || empty($post['titre']))
 				{
-					$errors[] = 'le titre ne doit pas étre vide';
+					$errors[] = errors_text('le titre ne doit pas étre vide');
 				}
 
 				if(!isset($post['description']) || empty($post['description']))
 				{
-					$errors[] = 'la description ne doit pas étre vide';
+					$errors[] = errors_text('la description ne doit pas étre vide');
 				}
 
 				if(!isset($post['temp']) || empty($post['temp']))
 				{
-					$errors[] = 'le temp ne doit pas étre vide';
+					$errors[] = errors_text('le temp ne doit pas étre vide');
 				}
 
 				if(!empty($_FILES) && isset($_FILES['picture']))
@@ -287,7 +294,7 @@ session_start();
 			            if(move_uploaded_file($tmpFichier, '../IMG/creations/'.$finalFileName)) 
 			            {
 			            	$img = $finalFileName;
-			                echo '<script>alert(\'la photo a bien était mise à jour\')</script>';  
+			                success_text('la photo a bien était mise à jour');  
 			                unset($_FILES['picture']);  
 			            }
 				    }
@@ -295,7 +302,7 @@ session_start();
 				    {
 				    	if($_FILES['picture']['error'] != 4)
 				    	{
-				    		$errors[] =  'erreur d\'upload de limage . code : '.$_FILES['picture']['error'];
+				    		$errors[] = errors_text('erreur d\'upload de limage . code : '.$_FILES['picture']['error']);
 				    	}
 				    	else
 				    	{
@@ -320,7 +327,7 @@ session_start();
 							$post['temp'],
 						]))
 					{
-						echo '<script>alert(\'erreur impossible de metre a jour la competence '.$competence['titre'].'\')</script>';
+						$errors[] = errors_text('erreur impossible de metre a jour la competence '.$competence['titre']);
 					}
 				}
 			}
@@ -333,22 +340,22 @@ session_start();
 			{				
 				if(!isset($post['type']) || empty($post['type']))
 				{
-					$errors[] = 'le Type ne doit pas étre vide';
+					$errors[] = errors_text('le Type ne doit pas étre vide');
 				}
 
 				if(!isset($post['titre']) || empty($post['titre']))
 				{
-					$errors[] = 'le titre ne doit pas étre vide';
+					$errors[] = errors_text('le titre ne doit pas étre vide');
 				}
 
 				if(!isset($post['description']) || empty($post['description']))
 				{
-					$errors[] = 'la description ne doit pas étre vide';
+					$errors[] = errors_text('la description ne doit pas étre vide');
 				}
 
 				if(!isset($post['temp']) || empty($post['temp']))
 				{
-					$errors[] = 'le temp ne doit pas étre vide';
+					$errors[] = errors_text('le temp ne doit pas étre vide');
 				}
 
 				if(!empty($_FILES) && isset($_FILES['picture']))
@@ -366,13 +373,13 @@ session_start();
 			            if(move_uploaded_file($tmpFichier, '../IMG/creations/'.$finalFileName)) 
 			            {
 			            	$img = $finalFileName;
-			                echo '<script>alert(\'la photo a bien était mise à jour\')</script>';  
+			                success_text('la photo a bien était mise à jour');  
 			                unset($_FILES['picture']);  
 			            }
 				    }
 				    else
 				    {
-				    	$errors[] =  'erreur d\'upload de limage . code : '.$_FILES['picture']['error'];
+				    	$errors[] = errors_text('erreur d\'upload de limage . code : '.$_FILES['picture']['error']);
 				    	unset($_FILES['picture']);
 				    }
 				}
@@ -388,7 +395,7 @@ session_start();
 							$post['temp'],
 						]))
 					{
-						echo '<script>alert(\'erreur impossible de metre a jour la competence '.$competence['titre'].'\')</script>';
+						$errors[] = errors_text('erreur impossible de metre a jour la competence '.$competence['titre']);
 					}
 				}
 			}
@@ -402,7 +409,7 @@ session_start();
 							$post['id'],
 						]))
 					{
-						echo '<script>alert(\'la creation à bien était Supprimer\')</script>';
+						success('la creation à bien était Supprimer');
 					}
 				}		
 			}
