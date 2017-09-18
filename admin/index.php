@@ -12,8 +12,12 @@ session_start();
 		session_destroy();
 	}
 
+	var_dump($_POST);
+	
 	if(!empty($_POST))
 	{
+
+
 		$post = array_map('strip_tags', $_POST);
 		$post = array_map('trim', $post);
 
@@ -33,6 +37,8 @@ session_start();
 							'pseudo'  => $user['pseudo'],
 							'role'		  => $user['role'],
 							];
+						$connect = true;
+						session_destroy();
 					}
 					else
 					{
@@ -504,7 +510,7 @@ session_start();
 
 				<div class="group">
 					<label class="label1">Photo CV</label><br><br>
-					<input class="input1" type="file" name="picture" value="<?=$infos['email']?>"><span class="highlight"></span><span class="bar"></span>
+					<input class="input1" type="file" name="picture" ><span class="highlight"></span><span class="bar"></span>
 				</div>
 
 				<input class="boutonedit" type="submit" value="Modifier les infos">

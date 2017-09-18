@@ -437,6 +437,9 @@ h1
 
 #popup_creation img
 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
 	margin: 5px;
 	height: calc(100% - 10px);
 	width: calc(50% - 10px);
