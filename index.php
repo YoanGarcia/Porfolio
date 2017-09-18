@@ -40,7 +40,7 @@
 	</head>
 
 	<body>
-
+	<section id="black_container"></section>
 		<!-- SECTION DEPART -->
 		<header>
 			<section class="t960px">
