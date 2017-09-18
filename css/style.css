@@ -81,6 +81,7 @@ body
 	animation-name: background;
 	animation-duration: 5s;
 	animation-fill-mode: forwards;
+	z-index: -1;
 }
 
 header
