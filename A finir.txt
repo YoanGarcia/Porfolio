@@ -1,6 +1,6 @@
 Global :
   - soulignement des titres comme dans l'ancien site
-  - toutes les créas vont dans un dossier a part
+  - toutes les créas vont dans un dossier a part			FAIT
 
 Page d'accueil:
   - remettre l'animation de l'ancien site
