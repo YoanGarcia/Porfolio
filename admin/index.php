@@ -468,11 +468,16 @@ session_start();
 		<nav>
 			<a href="../index.php" class="backto backtosite">Retour au site / Déconnexion</a>
 			<br>
+			<br>
 			<a href="#" class="backto backtotop">Retour en haut</a>
 			<br>
+			<br>
 			<a href="#" class="backto backtoapropos">A propos</a>
+			<br>
 			<a href="#competences" class="backto backtocompetences">Compétences</a>
+			<br>
 			<a href="#creas" class="backto backtocreations">Création</a>	
+			<br>
 		</nav>
 		
 
