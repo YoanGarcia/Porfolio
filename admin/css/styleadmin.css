@@ -43,29 +43,16 @@ body
 /* * * * * * * * * * * * * * * * *    LIENS DIRECTS    * * * * * * * * * * * * * * * * */
 /*  * * * * * * * * * * * * * * * * ---  -- - --  --- * * * * * * * * * * * * * * * *  */
 
-.backtosite {
-    top: 20px;
-}
-
-.backtotop {
-   top: 40px;
-}
-
-.backtoapropos {
-   top: 80px;
-}
-
-.backtocompetences {
-   top: 100px;
-}
-
-.backtocreations {
-   top: 120px;
+nav
+{
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	height: 150px;
+	text-align: left;
 }
 
 .backto {
-	position: fixed;
-	left: 20px;
 	color: white;
 	text-decoration: none;
 }

@@ -465,12 +465,16 @@ session_start();
 		<?php else: ?>
 
 		<!-- Liens directs -->
-		<a href="../index.php" class="backto backtosite">Retour au site</a>
-		<a href="#" class="backto backtotop">Retour en haut</a>
-
-		<a href="#" class="backto backtoapropos">A propos</a>
-		<a href="#competences" class="backto backtocompetences">Compétences</a>
-		<a href="#creas" class="backto backtocreations">Création</a>
+		<nav>
+			<a href="../index.php" class="backto backtosite">Retour au site / Déconnexion</a>
+			<br>
+			<a href="#" class="backto backtotop">Retour en haut</a>
+			<br>
+			<a href="#" class="backto backtoapropos">A propos</a>
+			<a href="#competences" class="backto backtocompetences">Compétences</a>
+			<a href="#creas" class="backto backtocreations">Création</a>	
+		</nav>
+		
 
 		<!-- Section A propos et footer -->
 		<section id="formulaire_infos">
