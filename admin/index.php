@@ -1,5 +1,5 @@
-<?php 
-	session_start();
+<?php
+session_start();
 
 	$bdd = new PDO('mysql:host=localhost;dbname=yoan;charset=utf8', 'root', '') or die($pdo->errorInfo());
 
@@ -9,6 +9,7 @@
 	if(isset($_SESSION['user']) && $_SESSION['user']['role'] === 'admin')
 	{
 		$connect = true;
+		session_destroy();
 	}
 
 	if(!empty($_POST))
@@ -18,7 +19,7 @@
 
 		if(isset($post['formulaire']))
 		{
-			if($post['formulaire'] === 'connection')
+			if($post['formulaire'] === 'connection' and $connect != true)
 			{
 				$req = $bdd->prepare('SELECT * FROM user  WHERE pseudo = ?');
 				$req->execute([$post['pseudo']]);
