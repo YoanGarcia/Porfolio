@@ -284,7 +284,7 @@ session_start();
 			            $imgname = explode('.', $post['creation_img'])[0];
 			            $finalFileName = $imgname.'.'.$fileExtension; 
 
-			            if(move_uploaded_file($tmpFichier, '../IMG/'.$finalFileName)) 
+			            if(move_uploaded_file($tmpFichier, '../IMG/creations/'.$finalFileName)) 
 			            {
 			            	$img = $finalFileName;
 			                echo '<script>alert(\'la photo a bien était mise à jour\')</script>';  
@@ -363,7 +363,7 @@ session_start();
 
 			            $finalFileName = time().'.'.$fileExtension; 
 
-			            if(move_uploaded_file($tmpFichier, '../IMG/'.$finalFileName)) 
+			            if(move_uploaded_file($tmpFichier, '../IMG/creations/'.$finalFileName)) 
 			            {
 			            	$img = $finalFileName;
 			                echo '<script>alert(\'la photo a bien était mise à jour\')</script>';  

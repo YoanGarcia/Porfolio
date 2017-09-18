@@ -138,7 +138,7 @@
 				<section class="buchet" id="creation">
 					<?php foreach ($creations as $creation): ?>
 						<article class="<?=$creation['type']?> creation">
-							<img src="IMG/<?=$creation['img']?>">
+							<img src="IMG/creations/<?=$creation['img']?>">
 							<section class="description_creation">
 								<h1 class="buchet"><?=$creation['titre']?></h1>
 								<p class="buchet">Temps de réalisation : <?=$creation['temp']?></p>
