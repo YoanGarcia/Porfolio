@@ -61,14 +61,17 @@ body
 	0%
 	{
 		background-color: rgba(0,0,0,1);
+		transform: rotate(180deg);
 	}
 	50%
 	{
 		background-color: rgba(0,0,0,0.5);
+		transform: rotate(-180deg);
 	}
 	100%
 	{
-		background-color: rgba(0,0,0,0);
+		background-color: rgba(255,157,124,1);
+		transform: rotate(180deg);
 	}
 } 
 
@@ -78,9 +81,9 @@ body
 	position: fixed;
 	width: 100vw;
 	height: 100vh;
-	background-color: rgba(0,0,0,0);
 	animation-name: background;
 	animation-duration: 5s;
+	animation-fill-mode: forwards;
 }
 
 header
