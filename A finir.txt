@@ -9,7 +9,7 @@ A propos de moi :
   - avoir la possibilité de revenir a la ligne dans l'édition
 
 Créations :
-  - bug de la popup
+  - bug de la popup							FAIT
   - cursor pointer sur la croix
 
 ********************
