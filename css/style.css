@@ -450,6 +450,13 @@ h1
 	background-color: transparent;
 }
 
+#popup_creation h1
+{
+	font-size: 26pt;
+	border-bottom: 2px solid white;
+	padding: 0px 0px 10px 0px;
+}
+
 #popup_creation img
 {
 	position: absolute;
@@ -482,6 +489,7 @@ h1
 	height: calc(100% - 20px);
 	text-align: center;
 	background-color: #0f515a;
+	padding: 25px 10px 0px 10px;
 }
 
 #popup_creation_close
