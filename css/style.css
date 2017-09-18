@@ -61,17 +61,17 @@ body
 	0%
 	{
 		background-color: rgba(0,0,0,1);
-		transform: rotate(180deg);
+		transform: rotate(180deg); /* pour fix suprimmer cette ligne xD */
 	}
 	50%
 	{
 		background-color: rgba(0,0,0,0.5);
-		transform: rotate(-180deg);
+		transform: rotate(-180deg); /* pour fix suprimmer cette ligne xD */
 	}
 	100%
 	{
-		background-color: rgba(255,157,124,1);
-		transform: rotate(180deg);
+		background-color: rgba(255,157,124,1);/* pour fix métre 0,0,0,1 */
+		transform: rotate(180deg);  /* pour fix suprimmer cette ligne xD */
 	}
 } 
 
