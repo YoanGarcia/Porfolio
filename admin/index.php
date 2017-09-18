@@ -20,7 +20,6 @@ session_start();
 	if(isset($_SESSION['user']) && $_SESSION['user']['role'] === 'admin')
 	{
 		$connect = true;
-		session_destroy();
 	}
 
 	if(!empty($_POST))
@@ -406,8 +405,6 @@ session_start();
 	$req = $bdd->prepare('SELECT * FROM creations');
 	$req->execute();
 	$creations = $req->fetchall(PDO::FETCH_ASSOC);
-
-	unset($_SESSION['user']);
 ?>
 
 <!-- ************************************************************************************************** -->
@@ -429,8 +426,8 @@ session_start();
 		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script src="../js/script.js" defer></script>
 		<script src="../js/smoothscroll.js" defer></script>
+		<script type="text/javascript" src="js/script.js" defer></script>
 	</head>
 
 	<body>
@@ -466,17 +463,17 @@ session_start();
 
 		<!-- Liens directs -->
 		<nav>
-			<a href="../index.php" class="backto backtosite">Retour au site / Déconnexion</a>
+			<a href="../index.php" id="deco" class="backto backtosite">Retour au site / Déconnexion</a>
 			<br>
 			<br>
-			<a href="#" class="backto backtotop">Retour en haut</a>
+			<a href="#" class=" js-scrollTo backto backtotop">Retour en haut</a>
 			<br>
 			<br>
-			<a href="#" class="backto backtoapropos">A propos</a>
+			<a href="#" class="js-scrollTo backto backtoapropos">A propos</a>
 			<br>
-			<a href="#competences" class="backto backtocompetences">Compétences</a>
+			<a href="#competences" class="js-scrollTo backto backtocompetences">Compétences</a>
 			<br>
-			<a href="#creas" class="backto backtocreations">Création</a>	
+			<a href="#creas" class="js-scrollTo backto backtocreations">Création</a>	
 			<br>
 		</nav>
 		
