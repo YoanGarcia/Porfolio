@@ -149,7 +149,6 @@ session_start();
 				}
 			}
 
-			var_dump($_POST);
 			if($post['formulaire'] === 'edit_competences')
 			{
 				$req = $bdd->prepare('SELECT * FROM competences');
