@@ -17,4 +17,4 @@ Créations :
 Admin :
   - formulaire de connection buggé                                 	FAIT
   - Peut pas modifier la photo CV					FONCTIONE TRéS BIEN ;) -> (CTRl + f5)
-  - Correctif ou affichage des messages d'erreurs et de réussites	
+  - Correctif ou affichage des messages d'erreurs et de réussites	FAIT

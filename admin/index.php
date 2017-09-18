@@ -149,6 +149,7 @@ session_start();
 				}
 			}
 
+			var_dump($_POST);
 			if($post['formulaire'] === 'edit_competences')
 			{
 				$req = $bdd->prepare('SELECT * FROM competences');
@@ -157,13 +158,17 @@ session_start();
 
 				foreach ($competences as $competence) 
 				{
-					if(empty($post[$competence['id']]) || !isset($post[$competence['id']]))
+					if(empty($post[$competence['id']]) or !isset($post[$competence['id']]))
+					{
+						$errors[] = errors_text('la compétence ne doit pas étre vide');
+					}
+					if(isset($post[$competence['id']]) and !empty($post[$competence['id']]))
 					{
 						$post[$competence['id']] = (int) $post[$competence['id']];
 
 						if($post[$competence['id']] < 0 || $post[$competence['id']] > 5)
 						{
-							$errors[] = errors_text('erreur d\'upload de limage . code : '.$comptence['titre'].' doit etre compris entre 0 et 5');
+							$errors[] = errors_text($competence['titre'].' doit etre compris entre 0 et 5');
 						}
 					}
 				}
