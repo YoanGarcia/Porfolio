@@ -101,7 +101,7 @@ session_start();
 					if($req->execute([
 							$post['telephone'],
 							$post['email'],
-							$post['apropos'],
+							$_POST['apropos'],
 							$finalFileName,
 						]))
 					{

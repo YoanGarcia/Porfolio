@@ -10,7 +10,7 @@ A propos de moi :
 
 Créations :
   - bug de la popup							FAIT
-  - cursor pointer sur la croix
+  - cursor pointer sur la croix						FAIT
 
 ********************
 
