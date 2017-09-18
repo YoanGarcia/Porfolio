@@ -6,7 +6,7 @@ Page d'accueil:
   - remettre l'animation de l'ancien site
 
 A propos de moi :
-  - avoir la possibilité de revenir a la ligne dans l'édition
+  - avoir la possibilité de revenir a la ligne dans l'édition		FAIT
 
 Créations :
   - bug de la popup							FAIT
