@@ -1,8 +1,0 @@
-Compétence
-  - Message de réussite de modification des compétences
-  - Fatal error quand ajout d'une compétence
-  - Erreur notice quand suppression d'une compétence
-
-Création
-  - Message de réussite quand modification d'une création
-  - Fatal error quand suppression d'un création
