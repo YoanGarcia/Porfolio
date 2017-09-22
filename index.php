@@ -1,5 +1,5 @@
 <?php
-	$bdd = new PDO('mysql:host=localhost;dbname=yoan;charset=utf8', 'root', '') or die($pdo->errorInfo());
+	$bdd = new PDO('mysql:host=localhost;dbname=yoangarchcbdd;charset=utf8', 'root', '') or die($pdo->errorInfo());
 
 	$req = $bdd->prepare('SELECT * FROM infos  WHERE id = 1');
 	$req->execute();
