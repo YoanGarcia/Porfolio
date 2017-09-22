@@ -183,6 +183,10 @@ session_start();
 							$errors[] = errors_text('erreur impossible de metre a jour la competence '.$competence['titre']);
 						}
 					}
+					if(count($errors) == 0)
+					{
+						success_text('Les compétence on bien était mise à jour');
+					}
 				}
 			}	
 
@@ -211,7 +215,7 @@ session_start();
 							$post['points']
 						]))
 					{
-						success('la competence '.$post['titre'].' à bien était ajouter\'');
+						success_text('la competence à bien était ajouter');
 					}
 				}
 			}
@@ -224,8 +228,8 @@ session_start();
 					if($req->execute([
 							$post['id'],
 						]))
-					{
-						success_text('la competence '.$post['titre'].' à bien était Supprimer\'');
+					{	
+						success_text('la competence à bien était Supprimer');
 					}
 				}		
 			}
@@ -307,6 +311,10 @@ session_start();
 					{
 						$errors[] = errors_text('erreur impossible de metre a jour la competence '.$competence['titre']);
 					}
+					else
+					{
+						success_text('La création a bien était mise à jour'); 
+					}
 				}
 			}
 
@@ -351,7 +359,7 @@ session_start();
 			            if(move_uploaded_file($tmpFichier, '../IMG/creations/'.$finalFileName)) 
 			            {
 			            	$img = $finalFileName;
-			                success_text('la photo a bien était mise à jour');  
+			                  
 			                unset($_FILES['picture']);  
 			            }
 				    }
@@ -375,6 +383,10 @@ session_start();
 					{
 						$errors[] = errors_text('erreur impossible de metre a jour la competence '.$competence['titre']);
 					}
+					else
+					{
+						success_text('la création a bien était créer');
+					}
 				}
 			}
 
@@ -387,7 +399,7 @@ session_start();
 							$post['id'],
 						]))
 					{
-						success('la creation à bien était Supprimer');
+						success_text('la creation à bien était Supprimer');
 					}
 				}		
 			}
