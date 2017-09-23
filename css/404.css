@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'eaglelake';
+    src: url('font/Eagle_Lake/EagleLake-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'trebuchet';
+    src: url('font/trebuc.ttf');
+}
+
+*
+{
+	margin: 0px;
+	padding: 0px;
+	color: white;
+	box-sizing: border-box;
+	font-family: 'trebuchet';
+}
+
+.t960px
+{
+	width: 960px;
+	margin: 0 auto;
+}
+
+body > header > section
+{
+	display: flex;
+}
+
+body
+{
+	background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../IMG/lion.jpg");
+	background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../IMG/lion.jpg");
+	background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../IMG/lion.jpg");
+	background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../IMG/lion.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center center;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#error404 {
+	background: rgb(45, 127, 139);
+	width: 20%;
+	margin-top: 200px;
+	margin-right: 40%;
+	margin-left: 40%;
+	text-align: center;
+}
+
+.btna {
+	text-decoration: none;
+}
+
+.btna:hover {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
